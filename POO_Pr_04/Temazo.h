@@ -37,11 +37,17 @@ public:
     Temazo& SetGenero(std::string Genero);
     Temazo& SetFechaUltimoUso(Fecha fechaUltimoUso);
     Temazo& SetNombreUltimoGarito(std::string nombreUltimoGarito);
+    
+    Temazo& operator=(const Temazo& right);
+    bool operator<(const Temazo& right) const;
+    bool operator==(const Temazo& right) const;
 
     std::string toCSV();
     void incrementarPuntuacion(int puntos);
     
     static void mostrarTemazo(Temazo &T);
+    static void verTemazosMasLargosQue(Temazo v[], int numTemazo, Temazo &temaso);
+    static int listaRelleno(Temazo v[], int tamv, Temazo* lista[], int duracion_total);
 private:
     std::string Titulo = "";
     std::string Interprete = "";
