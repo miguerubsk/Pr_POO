@@ -38,8 +38,8 @@ public:
     Temazo& SetFechaUltimoUso(Fecha fechaUltimoUso);
     Temazo& SetNombreUltimoGarito(std::string nombreUltimoGarito);
 
-
-
+    std::string toCSV();
+    void incrementarPuntuacion(int puntos);
     
     static void mostrarTemazo(Temazo &T);
 private:
@@ -50,6 +50,8 @@ private:
     Fecha fechaUltimoUso;
     int Duracion = 0;
     int Puntuacion = 0;
+    int idTemazo;
+    static int numTemazos;
 
 };
 
