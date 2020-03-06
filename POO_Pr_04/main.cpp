@@ -34,14 +34,27 @@ void menu() {
  * 
  */
 int main(int argc, char** argv) {
-    Temazo temazos[20];
-    Garito *pMiCasa = new Garito("Mi casa", "C/Hornillo");
+    Temazo temazos[5];
     Garito *garitos[10];
     
-    garitos[0] = new Garito("Hogar del Pensionista", "C/Arabial");
-    garitos[1] = new Garito("La fábrica", "C/Cuesta");    
+    garitos[0] = new Garito();
+    garitos[1] = new Garito();    
+    garitos[0]->SetNombre("Hogar del Pensionista");
+    garitos[0]->SetDireccion("C/Arabial");
+    garitos[1]->SetNombre("La fábrica");
+    garitos[1]->SetDireccion("C/Cuesta");
     
-    delete pMiCasa;
-    pMiCasa = nullptr;
+    temazos[0].SetTitulo("Soldiers").SetGenero("House").SetInterprete("Nitro Fun").SetNombreUltimoGarito("La Fábrica").SetDuracion(300);
+    temazos[1].SetTitulo("Fourty Nine Yards").SetGenero("LoFi HipHop").SetInterprete("Alex").SetNombreUltimoGarito("La Fábrica").SetDuracion(261);
+    temazos[2].SetTitulo("Breath").SetGenero("LoFi HipHop").SetInterprete("Nohone").SetNombreUltimoGarito("Hogar del Pensionista").SetDuracion(420);
+    
+    for(int i=0; i<5; ++i){
+        std::cout << temazos[i].toCSV() << std::endl;;
+    }
+    
+    for(int i = 0; i < 2; ++i){
+        std::cout << garitos[i]->toCSV() << std::endl;
+    }
+    
     return 0;
 }

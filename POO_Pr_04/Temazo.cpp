@@ -14,11 +14,18 @@
 #include "Temazo.h"
 #include "ParametroNoValido.h"
 
-Temazo::Temazo(): Titulo("N/A"), Interprete("N/A"), Genero("Pop"), fechaUltimoUso(), nombreUltimoGarito("N/A"), Duracion(0), Puntuacion(0){}
+Temazo::Temazo(): Titulo("N/A"), Interprete("N/A"), Genero("Pop"), fechaUltimoUso(), nombreUltimoGarito("N/A"), Duracion(0), Puntuacion(0){
+    numTemazos++;
+    idTemazo=numTemazos;
+}
+
+int Temazo::numTemazos(0);
 
 Temazo::Temazo(std::string titulo, std::string interprete, int duracion, int puntuacion, std::string genero): 
     Titulo(titulo), Interprete(interprete), Duracion(duracion), Puntuacion(puntuacion){
     SetGenero(genero);
+    numTemazos++;
+    idTemazo=numTemazos;
 }
 
 Temazo::Temazo(const Temazo& orig) {
@@ -29,6 +36,8 @@ Temazo::Temazo(const Temazo& orig) {
     nombreUltimoGarito = orig.nombreUltimoGarito;
     Duracion = orig.Puntuacion;
     Puntuacion = orig.Puntuacion;
+    numTemazos++;
+    idTemazo=numTemazos;
 }
 
 void Temazo::mostrarTemazo(Temazo &T){
@@ -40,6 +49,7 @@ void Temazo::mostrarTemazo(Temazo &T){
     std::cout << "Último garito en el que se usó: " << T.nombreUltimoGarito << std::endl;
     std::cout << "Duración: " << T.Duracion << " segundos" << std::endl;
     std::cout << "Puntuación: " << T.Puntuacion << std::endl;
+    std::cout << "Id: " << T.idTemazo << std::endl;
 }
 
 Temazo::~Temazo() {}
@@ -94,4 +104,14 @@ Temazo& Temazo::SetFechaUltimoUso(Fecha fechaUltimoUso) {
 Temazo& Temazo::SetNombreUltimoGarito(std::string nombreUltimoGarito) {
     this->nombreUltimoGarito = nombreUltimoGarito;
     return *this;
+}
+
+void Temazo::incrementarPuntuacion(int puntos) {
+    if (puntos < -10 || puntos > 10)
+        throw ParametroNoValido("Temazo.cpp", "incrementarPuntuacion()", "Los puntos deben estar en el rango [-10, 10]");
+    Puntuacion += puntos;
+}
+
+std::string Temazo::toCSV() {
+    return std::to_string(idTemazo)+";"+Titulo+";"+Interprete+";"+std::to_string(Duracion)+";"+std::to_string(Puntuacion)+";"+nombreUltimoGarito+";"+fechaUltimoUso.toCSV();
 }

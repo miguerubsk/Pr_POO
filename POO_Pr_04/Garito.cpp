@@ -67,3 +67,6 @@ std::string Garito::GetNombre() const {
     return Nombre;
 }
 
+std::string Garito::toCSV() {
+    return Nombre+";"+Direccion;
+}
