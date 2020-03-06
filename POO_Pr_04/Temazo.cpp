@@ -14,11 +14,18 @@
 #include "Temazo.h"
 #include "ParametroNoValido.h"
 
-Temazo::Temazo(): Titulo("N/A"), Interprete("N/A"), Genero("Pop"), fechaUltimoUso(), nombreUltimoGarito("N/A"), Duracion(0), Puntuacion(0){}
+Temazo::Temazo(): Titulo("N/A"), Interprete("N/A"), Genero("Pop"), fechaUltimoUso(), nombreUltimoGarito("N/A"), Duracion(0), Puntuacion(0){
+    numTemazos++;
+    idTemazo=numTemazos;
+}
+
+int Temazo::numTemazos(0);
 
 Temazo::Temazo(std::string titulo, std::string interprete, int duracion, int puntuacion, std::string genero): 
     Titulo(titulo), Interprete(interprete), Duracion(duracion), Puntuacion(puntuacion){
     SetGenero(genero);
+    numTemazos++;
+    idTemazo=numTemazos;
 }
 
 Temazo::Temazo(const Temazo& orig) {
@@ -29,6 +36,8 @@ Temazo::Temazo(const Temazo& orig) {
     nombreUltimoGarito = orig.nombreUltimoGarito;
     Duracion = orig.Puntuacion;
     Puntuacion = orig.Puntuacion;
+    numTemazos++;
+    idTemazo=numTemazos;
 }
 
 void Temazo::mostrarTemazo(Temazo &T){
