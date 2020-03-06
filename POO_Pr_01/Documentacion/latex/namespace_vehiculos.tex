@@ -1,0 +1,235 @@
+\hypertarget{namespace_vehiculos}{}\doxysection{Vehiculos Namespace Reference}
+\label{namespace_vehiculos}\index{Vehiculos@{Vehiculos}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespace_vehiculos_aadb8a10000b4bf6cd64a1b4e11bf31f1}{rellenar\+Vector}} (\mbox{\hyperlink{class_vehiculo}{Vehiculo}} v\mbox{[}$\,$\mbox{]}, int tamv)
+\begin{DoxyCompactList}\small\item\em Introduce en un vector los vehiculos con los datos que se solicitan al usuario. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_vehiculos_a9a2944b5bc54aad45a28b2d21c7d57f6}{mostrar\+En\+Pantalla}} (\mbox{\hyperlink{class_vehiculo}{Vehiculo}} v\mbox{[}$\,$\mbox{]}, int tamv)
+\begin{DoxyCompactList}\small\item\em Muestra por pantalla los vehiculos contenidos en un vector, de 5 en 5, uno por línea. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_vehiculos_a74ea487d882635bc86963109a84e74cb}{buscar\+Por\+Matricula}} (std\+::string mat, \mbox{\hyperlink{class_vehiculo}{Vehiculo}} v\mbox{[}$\,$\mbox{]}, int tamv)
+\begin{DoxyCompactList}\small\item\em busca en un vector un vehículo con una matrícula concreta \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespace_vehiculos_a21b10e7e379d6c28bbd54e0da475f6e8}{max\+Precio}} (\mbox{\hyperlink{class_vehiculo}{Vehiculo}} v\mbox{[}$\,$\mbox{]}, int tamv)
+\begin{DoxyCompactList}\small\item\em busca en n vector el vehiculo más caro de los que contiene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_vehiculos_acd2bf9dae92b4ac7417273dca7aaa574}{lee\+Por\+Teclado}} (\mbox{\hyperlink{class_vehiculo}{Vehiculo}} \&\+\_\+\+Vehiculo)
+\begin{DoxyCompactList}\small\item\em modifica los datos de \+\_\+\+Vehiculo leyendo los datos por teclado \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_vehiculos_a33517e6d87c344b6f231d427a8559e48}{lee\+Por\+Teclado}} (\mbox{\hyperlink{class_vehiculo}{Vehiculo}} $\ast$\+\_\+\+Vehiculo)
+\begin{DoxyCompactList}\small\item\em modifica los datos de \+\_\+\+Vehiculo leyendo los datos por teclado \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_vehiculos_aed3024f83d1c18a8620c59e8a4151cfb}{muestra\+En\+Pantalla}} (\mbox{\hyperlink{class_vehiculo}{Vehiculo}} \&\+\_\+\+Vehiculo)
+\begin{DoxyCompactList}\small\item\em muestra por la salida estándar los datos de \+\_\+\+Vehiculo \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_vehiculos_aa747dc1a2cf254509d82d7f8020283e2}{muestra\+En\+Pantalla}} (\mbox{\hyperlink{class_vehiculo}{Vehiculo}} $\ast$\+\_\+\+Vehiculo)
+\begin{DoxyCompactList}\small\item\em muestra por la salida estándar los datos de \+\_\+\+Vehiculo \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_vehiculos_a9d4b15a631a63510ae0c7bcf15627c7a}{incrementa\+Precios}} (\mbox{\hyperlink{class_vehiculo}{Vehiculo}} vehiculos\mbox{[}$\,$\mbox{]}, int numvehiculos, float porcentaje)
+\begin{DoxyCompactList}\small\item\em los precios de los vehiculos contenidos en el vector se incrementan el porcentaje que se especifique \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vehiculo}{Vehiculo}} $\ast$ \mbox{\hyperlink{namespace_vehiculos_aad37b4cbf85eea94b890c4e98a32c747}{buscar\+Subcadena}} (\mbox{\hyperlink{class_vehiculo}{Vehiculo}} vehiculos\mbox{[}$\,$\mbox{]}, int num\+Vehiculos, std\+::string sub)
+\begin{DoxyCompactList}\small\item\em Busca una subcadena en las marcas de los vehicuos de un vector de vehículos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespace_vehiculos_a74ea487d882635bc86963109a84e74cb}\label{namespace_vehiculos_a74ea487d882635bc86963109a84e74cb}} 
+\index{Vehiculos@{Vehiculos}!buscarPorMatricula@{buscarPorMatricula}}
+\index{buscarPorMatricula@{buscarPorMatricula}!Vehiculos@{Vehiculos}}
+\doxysubsubsection{\texorpdfstring{buscarPorMatricula()}{buscarPorMatricula()}}
+{\footnotesize\ttfamily int Vehiculos\+::buscar\+Por\+Matricula (\begin{DoxyParamCaption}\item[{std\+::string}]{mat,  }\item[{\mbox{\hyperlink{class_vehiculo}{Vehiculo}}}]{v\mbox{[}$\,$\mbox{]},  }\item[{int}]{tamv }\end{DoxyParamCaption})}
+
+
+
+busca en un vector un vehículo con una matrícula concreta 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & matricula que se quiere buscar \\
+\hline
+{\em v} & vector en el que se quiere buscar \\
+\hline
+{\em tamv} & tamaño del vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Posición del vehiculo en caso de encontrarlo 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::domain\+\_\+error} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{namespace_vehiculos_aad37b4cbf85eea94b890c4e98a32c747}\label{namespace_vehiculos_aad37b4cbf85eea94b890c4e98a32c747}} 
+\index{Vehiculos@{Vehiculos}!buscarSubcadena@{buscarSubcadena}}
+\index{buscarSubcadena@{buscarSubcadena}!Vehiculos@{Vehiculos}}
+\doxysubsubsection{\texorpdfstring{buscarSubcadena()}{buscarSubcadena()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vehiculo}{Vehiculo}} $\ast$ Vehiculos\+::buscar\+Subcadena (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vehiculo}{Vehiculo}}}]{vehiculos\mbox{[}$\,$\mbox{]},  }\item[{int}]{num\+Vehiculos,  }\item[{std\+::string}]{sub }\end{DoxyParamCaption})}
+
+
+
+Busca una subcadena en las marcas de los vehicuos de un vector de vehículos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vehiculos} & vector que contiene los vehiculos \\
+\hline
+{\em num\+Vehiculos} & numero de vehículos en el vector \\
+\hline
+{\em sub} & subcadena a buscar en en la marca \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Un puntero al vehiculo encontrado o nullptr si no lo ha encontrado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespace_vehiculos_a9d4b15a631a63510ae0c7bcf15627c7a}\label{namespace_vehiculos_a9d4b15a631a63510ae0c7bcf15627c7a}} 
+\index{Vehiculos@{Vehiculos}!incrementaPrecios@{incrementaPrecios}}
+\index{incrementaPrecios@{incrementaPrecios}!Vehiculos@{Vehiculos}}
+\doxysubsubsection{\texorpdfstring{incrementaPrecios()}{incrementaPrecios()}}
+{\footnotesize\ttfamily void Vehiculos\+::incrementa\+Precios (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vehiculo}{Vehiculo}}}]{vehiculos\mbox{[}$\,$\mbox{]},  }\item[{int}]{numvehiculos,  }\item[{float}]{porcentaje }\end{DoxyParamCaption})}
+
+
+
+los precios de los vehiculos contenidos en el vector se incrementan el porcentaje que se especifique 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vehiculos} & vector del cual se van a modificar los precios \\
+\hline
+{\em numvehiculos} & numero de vehiculos que hay en el vector \\
+\hline
+{\em porcentaje} & porcentaje que se van a incrementar los precios en el vector \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{namespace_vehiculos_acd2bf9dae92b4ac7417273dca7aaa574}\label{namespace_vehiculos_acd2bf9dae92b4ac7417273dca7aaa574}} 
+\index{Vehiculos@{Vehiculos}!leePorTeclado@{leePorTeclado}}
+\index{leePorTeclado@{leePorTeclado}!Vehiculos@{Vehiculos}}
+\doxysubsubsection{\texorpdfstring{leePorTeclado()}{leePorTeclado()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Vehiculos\+::lee\+Por\+Teclado (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vehiculo}{Vehiculo}} \&}]{\+\_\+\+Vehiculo }\end{DoxyParamCaption})}
+
+
+
+modifica los datos de \+\_\+\+Vehiculo leyendo los datos por teclado 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+Vehiculo} & que se quiere modificar \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{namespace_vehiculos_a33517e6d87c344b6f231d427a8559e48}\label{namespace_vehiculos_a33517e6d87c344b6f231d427a8559e48}} 
+\index{Vehiculos@{Vehiculos}!leePorTeclado@{leePorTeclado}}
+\index{leePorTeclado@{leePorTeclado}!Vehiculos@{Vehiculos}}
+\doxysubsubsection{\texorpdfstring{leePorTeclado()}{leePorTeclado()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Vehiculos\+::lee\+Por\+Teclado (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vehiculo}{Vehiculo}} $\ast$}]{\+\_\+\+Vehiculo }\end{DoxyParamCaption})}
+
+
+
+modifica los datos de \+\_\+\+Vehiculo leyendo los datos por teclado 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+Vehiculo} & que se quiere modificar \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{namespace_vehiculos_a21b10e7e379d6c28bbd54e0da475f6e8}\label{namespace_vehiculos_a21b10e7e379d6c28bbd54e0da475f6e8}} 
+\index{Vehiculos@{Vehiculos}!maxPrecio@{maxPrecio}}
+\index{maxPrecio@{maxPrecio}!Vehiculos@{Vehiculos}}
+\doxysubsubsection{\texorpdfstring{maxPrecio()}{maxPrecio()}}
+{\footnotesize\ttfamily int Vehiculos\+::max\+Precio (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vehiculo}{Vehiculo}}}]{v\mbox{[}$\,$\mbox{]},  }\item[{int}]{tamv }\end{DoxyParamCaption})}
+
+
+
+busca en n vector el vehiculo más caro de los que contiene 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & vector en el que se quiere buscar \\
+\hline
+{\em tamv} & tanaño del vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Posición del vehiculo más caro 
+\end{DoxyReturn}
+\mbox{\Hypertarget{namespace_vehiculos_a9a2944b5bc54aad45a28b2d21c7d57f6}\label{namespace_vehiculos_a9a2944b5bc54aad45a28b2d21c7d57f6}} 
+\index{Vehiculos@{Vehiculos}!mostrarEnPantalla@{mostrarEnPantalla}}
+\index{mostrarEnPantalla@{mostrarEnPantalla}!Vehiculos@{Vehiculos}}
+\doxysubsubsection{\texorpdfstring{mostrarEnPantalla()}{mostrarEnPantalla()}}
+{\footnotesize\ttfamily void Vehiculos\+::mostrar\+En\+Pantalla (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vehiculo}{Vehiculo}}}]{v\mbox{[}$\,$\mbox{]},  }\item[{int}]{tamv }\end{DoxyParamCaption})}
+
+
+
+Muestra por pantalla los vehiculos contenidos en un vector, de 5 en 5, uno por línea. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & vector que se quiere visualizar \\
+\hline
+{\em tamv} & tamaño del vector \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespace_vehiculos_aed3024f83d1c18a8620c59e8a4151cfb}\label{namespace_vehiculos_aed3024f83d1c18a8620c59e8a4151cfb}} 
+\index{Vehiculos@{Vehiculos}!muestraEnPantalla@{muestraEnPantalla}}
+\index{muestraEnPantalla@{muestraEnPantalla}!Vehiculos@{Vehiculos}}
+\doxysubsubsection{\texorpdfstring{muestraEnPantalla()}{muestraEnPantalla()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Vehiculos\+::muestra\+En\+Pantalla (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vehiculo}{Vehiculo}} \&}]{\+\_\+\+Vehiculo }\end{DoxyParamCaption})}
+
+
+
+muestra por la salida estándar los datos de \+\_\+\+Vehiculo 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+Vehiculo} & que se quiere mostrar por pantalla \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespace_vehiculos_aa747dc1a2cf254509d82d7f8020283e2}\label{namespace_vehiculos_aa747dc1a2cf254509d82d7f8020283e2}} 
+\index{Vehiculos@{Vehiculos}!muestraEnPantalla@{muestraEnPantalla}}
+\index{muestraEnPantalla@{muestraEnPantalla}!Vehiculos@{Vehiculos}}
+\doxysubsubsection{\texorpdfstring{muestraEnPantalla()}{muestraEnPantalla()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Vehiculos\+::muestra\+En\+Pantalla (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vehiculo}{Vehiculo}} $\ast$}]{\+\_\+\+Vehiculo }\end{DoxyParamCaption})}
+
+
+
+muestra por la salida estándar los datos de \+\_\+\+Vehiculo 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+\+Vehiculo} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{namespace_vehiculos_aadb8a10000b4bf6cd64a1b4e11bf31f1}\label{namespace_vehiculos_aadb8a10000b4bf6cd64a1b4e11bf31f1}} 
+\index{Vehiculos@{Vehiculos}!rellenarVector@{rellenarVector}}
+\index{rellenarVector@{rellenarVector}!Vehiculos@{Vehiculos}}
+\doxysubsubsection{\texorpdfstring{rellenarVector()}{rellenarVector()}}
+{\footnotesize\ttfamily int Vehiculos\+::rellenar\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vehiculo}{Vehiculo}}}]{v\mbox{[}$\,$\mbox{]},  }\item[{int}]{tamv }\end{DoxyParamCaption})}
+
+
+
+Introduce en un vector los vehiculos con los datos que se solicitan al usuario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & vector que se quiere rellenar \\
+\hline
+{\em tamv} & tamaño del vector que se quiere rellenar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Número de vehiculos introducidos por el usuario 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::length\+\_\+error} & \\
+\hline
+{\em std\+::invalid\+\_\+argument} & \\
+\hline
+\end{DoxyExceptions}
