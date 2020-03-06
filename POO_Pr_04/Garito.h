@@ -21,10 +21,15 @@ public:
     Garito(std::string nombre, std::string direccion);
     Garito(const Garito& orig);
     virtual ~Garito();
-    void SetDireccion(std::string Direccion);
+    
     std::string GetDireccion() const;
-    void SetNombre(std::string Nombre);
     std::string GetNombre() const;
+    
+    void SetDireccion(std::string Direccion);
+    void SetNombre(std::string Nombre);
+    
+    std::string toCSV();
+    
     static void mostrarGarito(Garito &G);
     static void modificarGarito(Garito &G);
 private:
