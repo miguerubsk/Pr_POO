@@ -88,3 +88,7 @@ bool Fecha::operator!=(const Fecha& right) const {
         return false;
     return true;
 }
+
+std::string Fecha::toCSV() {
+    return std::to_string(Anio)+";"+std::to_string(Mes)+";"+std::to_string(Dia);
+}

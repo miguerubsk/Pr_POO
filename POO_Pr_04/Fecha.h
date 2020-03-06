@@ -39,6 +39,8 @@ public:
     bool operator>(const Fecha& right) const;
     bool operator!=(const Fecha& right) const;
     
+    std::string toCSV();
+    
     static void mostrarFecha(Fecha &F);
     
 private:
