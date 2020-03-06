@@ -12,6 +12,7 @@
  */
 
 #include "Temazo.h"
+#include "ParametroNoValido.h"
 
 Temazo::Temazo(): Titulo("N/A"), Interprete("N/A"), Genero("Pop"), fechaUltimoUso(), nombreUltimoGarito("N/A"), Duracion(0), Puntuacion(0){}
 
@@ -64,8 +65,7 @@ Temazo& Temazo::SetTitulo(std::string Titulo) {
     return *this;
 }
 
-std::string Temazo::GetTitulo() const { return Titulo;
-}
+std::string Temazo::GetTitulo() const { return Titulo; }
 
 std::string Temazo::GetGenero() const {
     return Genero;
@@ -73,7 +73,7 @@ std::string Temazo::GetGenero() const {
 
 Temazo& Temazo::SetGenero(std::string Genero) {
     if(Genero.length() < 2)
-        throw std::invalid_argument("SetGenero() -> El género debe tener más de 2 caracteres");
+        throw ParametroNoValido("Temazo.cpp", "SetGenero()", "El género debe tener más de 2 caracteres");
     this->Genero = Genero;
     return *this;
 }

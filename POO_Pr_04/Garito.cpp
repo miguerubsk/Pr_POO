@@ -12,6 +12,7 @@
  */
 
 #include "Garito.h"
+#include "ParametroNoValido.h"
 
 Garito::Garito() : Nombre(""), Direccion("") {
 }
@@ -48,7 +49,7 @@ void Garito::modificarGarito(Garito& G) {
 
 void Garito::SetDireccion(std::string Direccion) {
     if (Direccion == "")
-        throw std::invalid_argument("Garito::SetDireccion() -> La direccion no puede estar vacía");
+        throw ParametroNoValido("Garito.cpp", "SetDireccion()", "La direccion no puede estar vacía");
     this->Direccion = Direccion;
 }
 
@@ -58,7 +59,7 @@ std::string Garito::GetDireccion() const {
 
 void Garito::SetNombre(std::string Nombre) {
     if (Nombre == "")
-        throw std::invalid_argument("Garito::SetNombre() -> El nombre no puede estar vacío");
+        throw ParametroNoValido("Garito.cpp", "SetNombre()", "El nombre no puede estar vacío");
     this->Nombre = Nombre;
 }
 

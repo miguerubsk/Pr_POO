@@ -37,6 +37,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/Fecha.o \
 	${OBJECTDIR}/Garito.o \
+	${OBJECTDIR}/ParametroNoValido.o \
 	${OBJECTDIR}/Temazo.o \
 	${OBJECTDIR}/main.o
 
@@ -74,6 +75,11 @@ ${OBJECTDIR}/Garito.o: Garito.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Garito.o Garito.cpp
+
+${OBJECTDIR}/ParametroNoValido.o: ParametroNoValido.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ParametroNoValido.o ParametroNoValido.cpp
 
 ${OBJECTDIR}/Temazo.o: Temazo.cpp
 	${MKDIR} -p ${OBJECTDIR}
