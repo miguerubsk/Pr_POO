@@ -26,8 +26,7 @@ void Fecha::mostrarFecha(Fecha& F) {
     std::cout << F.GetDia() << "/" << F.GetMes() << "/" << F.GetAnio() << std::endl;
 }
 
-Fecha::Fecha(int dia, int mes, int anio) : Dia(dia), Mes(mes), Anio(anio) {
-}
+Fecha::Fecha(int dia, int mes, int anio) : Dia(dia), Mes(mes), Anio(anio) {}
 
 Fecha::Fecha(const Fecha& orig) {
     Dia = orig.Dia;

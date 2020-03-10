@@ -21,8 +21,7 @@ Temazo::Temazo(): Titulo("N/A"), Interprete("N/A"), Genero("Pop"), fechaUltimoUs
 
 int Temazo::numTemazos(0);
 
-Temazo::Temazo(std::string titulo, std::string interprete, int duracion, int puntuacion, std::string genero): 
-    Titulo(titulo), Interprete(interprete), Duracion(duracion), Puntuacion(puntuacion){
+Temazo::Temazo(std::string titulo, std::string interprete, int duracion, int puntuacion, std::string genero): Titulo(titulo), Interprete(interprete), Duracion(duracion), Puntuacion(puntuacion){
     SetGenero(genero);
     numTemazos++;
     idTemazo=numTemazos;
@@ -114,4 +113,53 @@ void Temazo::incrementarPuntuacion(int puntos) {
 
 std::string Temazo::toCSV() {
     return std::to_string(idTemazo)+";"+Titulo+";"+Interprete+";"+std::to_string(Duracion)+";"+std::to_string(Puntuacion)+";"+nombreUltimoGarito+";"+fechaUltimoUso.toCSV();
+}
+
+Temazo& Temazo::operator=(const Temazo& right) {
+    if (this == &right)
+        return *this;
+
+    Titulo = right.Titulo;
+    Duracion = right.Duracion;
+    Interprete = right.Interprete;
+    Genero = right.Genero;
+    fechaUltimoUso = right.fechaUltimoUso;
+    nombreUltimoGarito = right.nombreUltimoGarito;
+    Duracion = right.Puntuacion;
+    Puntuacion = right.Puntuacion;
+
+    return *this;
+}
+
+bool Temazo::operator<(const Temazo& right) const {
+    if (Duracion < right.Duracion)
+        return true;
+    return false;
+}
+
+bool Temazo::operator==(const Temazo& right) const {
+    if (Duracion == right.Duracion)
+        return true;
+    return false;
+}
+
+void Temazo::verTemazosMasLargosQue(Temazo v[], int numTemazo, Temazo& temaso) {
+    for(int i = 0; i < numTemazo; ++i){
+        if(temaso<v[i])
+            Temazo::mostrarTemazo(v[i]);  
+    }
+//    std::cout<<"Ningun temazo coincide"<<std::endl;
+}
+
+int Temazo::listaRelleno(Temazo v[], int tamv, Temazo* lista[], int duracion_total) {
+    int dur_aux=0;
+    for ( int i = 0; i < tamv; ++i){
+        if(dur_aux<duracion_total){
+            lista[i] = &v[i];
+            dur_aux+=v[i].Duracion;
+        }else{
+            lista[i]=nullptr;
+        }
+    }
+    return tamv;
 }

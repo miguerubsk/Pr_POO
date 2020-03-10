@@ -14,12 +14,9 @@
 #include "Garito.h"
 #include "ParametroNoValido.h"
 
-Garito::Garito() : Nombre(""), Direccion("") {
-}
+Garito::Garito() : Nombre(""), Direccion("") {}
 
-Garito::Garito(std::string nombre, std::string direccion) : Nombre(nombre), Direccion(direccion) {
-
-}
+Garito::Garito(std::string nombre, std::string direccion) : Nombre(nombre), Direccion(direccion) {}
 
 Garito::Garito(const Garito& orig) {
     Nombre = orig.Nombre;

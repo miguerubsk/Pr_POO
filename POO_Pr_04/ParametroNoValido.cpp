@@ -22,9 +22,7 @@ ParametroNoValido::ParametroNoValido(const ParametroNoValido& orig) {
 ParametroNoValido::~ParametroNoValido() {
 }
 
-ParametroNoValido::ParametroNoValido(std::string fichero, std::string funcion, std::string descripcion) :
-fichero(fichero), funcion(funcion), descripcion(descripcion) {
-}
+ParametroNoValido::ParametroNoValido(std::string fichero, std::string funcion, std::string descripcion) : fichero(fichero), funcion(funcion), descripcion(descripcion) {}
 
 std::string ParametroNoValido::queOcurre() {
     return "Fichero: "+fichero+" - Función: "+funcion+" - Descripción: "+descripcion;
