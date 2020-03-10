@@ -6,3 +6,5 @@ POO_Pr_00/
 *.exe
 *.mk
 *.stackdump
+*.bash
+POO_Pr_5/nbproject/private/c_standard_headers_indexer.c
