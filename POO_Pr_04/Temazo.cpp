@@ -21,8 +21,7 @@ Temazo::Temazo(): Titulo("N/A"), Interprete("N/A"), Genero("Pop"), fechaUltimoUs
 
 int Temazo::numTemazos(0);
 
-Temazo::Temazo(std::string titulo, std::string interprete, int duracion, int puntuacion, std::string genero): 
-    Titulo(titulo), Interprete(interprete), Duracion(duracion), Puntuacion(puntuacion){
+Temazo::Temazo(std::string titulo, std::string interprete, int duracion, int puntuacion, std::string genero): Titulo(titulo), Interprete(interprete), Duracion(duracion), Puntuacion(puntuacion){
     SetGenero(genero);
     numTemazos++;
     idTemazo=numTemazos;
