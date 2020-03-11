@@ -32,10 +32,6 @@ _fechaUltimaMision(orig._fechaUltimaMision), _incidenciasUltimaMision(orig._inci
 Piloto::~Piloto() {
 }
 
-/**
- * @todo Aquí hay que añadir la comprobación del parámetro y lanzar la excepción
- *       correspondiente. El número de misiones no puede ser <= 0
- */
 void Piloto::setNumMisiones(int numMisiones) {
     if (numMisiones <= 0)
         throw std::invalid_argument("El número de misiones no puede ser menor o igual a 0");
@@ -66,11 +62,9 @@ int Piloto::getIdP() const {
     return _idP;
 }
 
-/**
- * @todo Si el número de misiones del piloto es 0, no puede tener incidencias;
- *       haz esta comprobación y lanza la excepción correspondiente
- */
 void Piloto::setIncidenciasUltimaMision(string incidenciasUltimaMision) {
+    if(_numMisiones == 0)
+        throw std::invalid_argument("El piloto no puede tener incidencias si no ha realizado ninguna misión");
     this->_incidenciasUltimaMision = incidenciasUltimaMision;
 }
 
@@ -78,21 +72,15 @@ string Piloto::getIncidenciasUltimaMision() const {
     return _incidenciasUltimaMision;
 }
 
-/**
- * @todo Si el número de misiones del piloto es 0, no puede tener fecha de
- *       última misión; haz esta comprobación y lanza la excepción
- *       correspondiente
- */
 void Piloto::setFechaUltimaMision(long fechaUltimaMision) {
+    if(_numMisiones == 0)
+        throw std::invalid_argument("El piloto no ha realizado ninguna misión");
     this->_fechaUltimaMision = fechaUltimaMision;
 }
 
-/**
- * @todo Si el número de misiones del piloto es 0, no puede tener fecha de
- *       última misión; haz esta comprobación y lanza la excepción
- *       correspondiente
- */
 long Piloto::getFechaUltimaMision() const {
+    if(_numMisiones == 0)
+        throw std::invalid_argument("El piloto no ha realizado ninguna misión");
     return _fechaUltimaMision;
 }
 

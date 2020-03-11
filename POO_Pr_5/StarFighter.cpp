@@ -30,11 +30,9 @@ StarFighter::StarFighter(const StarFighter& orig) : _marca(orig._marca), _modelo
 StarFighter::~StarFighter() {
 }
 
-/**
- * @todo Aquí hay que añadir la comprobación del parámetro y lanzar la excepción
- *       correspondiente. El número de plazas no puede ser <= 0
- */
 void StarFighter::setNumPlazas(int numPlazas) {
+    if(numPlazas <= 0)
+        throw std::invalid_argument("El número de plazas no puede ser menor o igual a 0");
     this->_numPlazas = numPlazas;
 }
 

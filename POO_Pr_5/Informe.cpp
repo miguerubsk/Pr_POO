@@ -38,10 +38,9 @@ string Informe::getDatosInforme() const {
     return _datosInforme;
 }
 
-/**
- * @todo Comprobar el valor, y si es negativo, lanzar excepción
- */
 Informe& Informe::setFechaEstelar(long fechaEstelar) {
+    if(fechaEstelar < 0)
+        throw std::invalid_argument("La fecha estelar no puede ser negativa");
     this->_fechaEstelar = fechaEstelar;
     return *this;
 }
@@ -50,10 +49,9 @@ long Informe::getFechaEstelar() const {
     return _fechaEstelar;
 }
 
-/**
- * @todo Comprobar el valor, y si es negativo, lanzar excepción
- */
 Informe& Informe::setIdPiloto(int idPiloto) {
+    if(idPiloto < 0)
+        throw std::invalid_argument("l id del piloto no puede ser negativo");
     this->_idPiloto = idPiloto;
     return ( *this);
 }
