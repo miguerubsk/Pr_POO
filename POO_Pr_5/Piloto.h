@@ -9,6 +9,7 @@
 #define PILOTO_H
 
 #include <string>
+#include "StarFighter.h"
 
 /**
  * @brief
@@ -22,24 +23,31 @@ private:
     int _numMisiones = 0; ///< Número de misiones en que ha participado
     long _fechaUltimaMision = 0; ///< Fecha estelar de su última misión
     std::string _incidenciasUltimaMision; ///< Incidencias reportadas por el piloto en su última misión.
+    StarFighter* nave; ///< Nave del piloto
 
 public:
     Piloto();
     Piloto(std::string nombre);
     Piloto(const Piloto& orig);
     virtual ~Piloto();
-    void setNumMisiones(int numMisiones);
-    int getNumMisiones() const;
-    void setNacionalidad(std::string nacionalidad);
-    std::string getNacionalidad() const;
-    void setNombre(std::string nombre);
-    std::string getNombre() const;
+    
     int getIdP() const;
-    void setIncidenciasUltimaMision(std::string incidenciasUltimaMision);
-    std::string getIncidenciasUltimaMision() const;
-    void setFechaUltimaMision(long fechaUltimaMision);
+    int getNumMisiones() const;
     long getFechaUltimaMision() const;
+    std::string getIncidenciasUltimaMision() const;
+    std::string getNacionalidad() const;
+    std::string getNombre() const;
+    StarFighter* getNave() const;
+    
+    void setNacionalidad(std::string nacionalidad);
+    void setIncidenciasUltimaMision(std::string incidenciasUltimaMision);
+    void setNombre(std::string nombre);
+    void setFechaUltimaMision(long fechaUltimaMision);
+    void setNumMisiones(int numMisiones);
+    void setNave(StarFighter* nave);
+    
     std::string toCSV() const;
+    
     Piloto& operator=(const Piloto& otro);
 };
 

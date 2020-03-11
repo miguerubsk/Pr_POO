@@ -25,12 +25,16 @@ public:
     Droide(std::string marca, std::string modelo);
     Droide(const Droide& orig);
     virtual ~Droide();
+    
     int getIdD() const;
-    void setModelo(std::string modelo);
     std::string getModelo() const;
-    void setMarca(std::string marca);
     std::string getMarca() const;
+    
+    void setMarca(std::string marca);
+    void setModelo(std::string modelo);
+    
     std::string toCSV() const;
+    
     Droide& operator=(const Droide& otro);
 };
 

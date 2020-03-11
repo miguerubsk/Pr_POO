@@ -26,14 +26,18 @@ public:
     Informe(long fecha);
     Informe(const Informe& orig);
     virtual ~Informe();
+    
     Informe& setDatosInforme(std::string datosInforme);
-    std::string getDatosInforme() const;
-    Informe& setFechaEstelar(long fechaEstelar);
-    long getFechaEstelar() const;
     Informe& setIdPiloto(int idPiloto);
+    Informe& setFechaEstelar(long fechaEstelar);
+    
+    long getFechaEstelar() const;
+    std::string getDatosInforme() const;
     int getIdPiloto() const;
     int getIdI() const;
+    
     std::string toCSV() const;
+    
     Informe& operator=(const Informe& otro);
 };
 
