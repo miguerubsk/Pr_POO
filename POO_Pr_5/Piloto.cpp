@@ -32,26 +32,32 @@ _fechaUltimaMision(orig._fechaUltimaMision), _incidenciasUltimaMision(orig._inci
 Piloto::~Piloto() {
 }
 
-void Piloto::setNumMisiones(int numMisiones) {
+Piloto& Piloto::setNumMisiones(int numMisiones) {
     if (numMisiones <= 0)
         throw std::invalid_argument("El número de misiones no puede ser menor o igual a 0");
     this->_numMisiones = numMisiones;
+    
+    return *this;
 }
 
 int Piloto::getNumMisiones() const {
     return _numMisiones;
 }
 
-void Piloto::setNacionalidad(string nacionalidad) {
+Piloto& Piloto::setNacionalidad(string nacionalidad) {
     this->_nacionalidad = nacionalidad;
+    
+    return *this;
 }
 
 string Piloto::getNacionalidad() const {
     return _nacionalidad;
 }
 
-void Piloto::setNombre(string nombre) {
+Piloto& Piloto::setNombre(string nombre) {
     this->_nombre = nombre;
+    
+    return *this;
 }
 
 string Piloto::getNombre() const {
@@ -62,38 +68,30 @@ int Piloto::getIdP() const {
     return _idP;
 }
 
-void Piloto::setIncidenciasUltimaMision(string incidenciasUltimaMision) {
+Piloto& Piloto::setIncidenciasUltimaMision(string incidenciasUltimaMision) {
     if(_numMisiones == 0)
         throw std::invalid_argument("El piloto no puede tener incidencias si no ha realizado ninguna misión");
     this->_incidenciasUltimaMision = incidenciasUltimaMision;
+    
+    return *this;
 }
 
 string Piloto::getIncidenciasUltimaMision() const {
     return _incidenciasUltimaMision;
 }
 
-void Piloto::setFechaUltimaMision(long fechaUltimaMision) {
+Piloto& Piloto::setFechaUltimaMision(long fechaUltimaMision) {
     if(_numMisiones == 0)
         throw std::invalid_argument("El piloto no ha realizado ninguna misión");
     this->_fechaUltimaMision = fechaUltimaMision;
+    
+    return *this;
 }
 
 long Piloto::getFechaUltimaMision() const {
     if(_numMisiones == 0)
         throw std::invalid_argument("El piloto no ha realizado ninguna misión");
     return _fechaUltimaMision;
-}
-
-string Piloto::toCSV() const {
-    std::stringstream aux;
-
-    aux << _nombre << " ; "
-            << _nacionalidad << " ; "
-            << _numMisiones << " ; "
-            << _fechaUltimaMision << " ; "
-            << _incidenciasUltimaMision;
-
-    return aux.str();
 }
 
 Piloto& Piloto::operator=(const Piloto& otro) {
@@ -112,6 +110,57 @@ StarFighter* Piloto::getNave() const {
     return nave;
 }
 
-void Piloto::setNave(StarFighter* nave) {
+Piloto& Piloto::setNave(StarFighter* nave) {
     this->nave = nave;
+    
+    return *this;
+}
+
+Droide* Piloto::getAuxiliar() const {
+    return auxiliar;
+}
+
+Piloto& Piloto::setAuxiliar(Droide* auxiliar) {
+    this->auxiliar = auxiliar;
+    
+    return *this;
+}
+
+Informe Piloto::generaInforme() {
+    std::stringstream aux;
+    aux     <<"ID StarFighter: " << nave->getIdSF() << std::endl
+            << "ID Droide auxiliar: " << auxiliar->getIdD() << std::endl
+            << "Incidencias durante la misión: " << _incidenciasUltimaMision;
+    Informe informe;
+    informe.setIdPiloto(_idP);
+    informe.setFechaEstelar(_fechaUltimaMision);
+    informe.setDatosInforme(aux.str());
+    
+    return informe;
+}
+
+string Piloto::toCSV() const {
+    std::stringstream aux;
+
+    aux << _nombre << " ; "
+            << _nacionalidad << " ; "
+            << _numMisiones << " ; "
+            << _fechaUltimaMision << " ; "
+            << _incidenciasUltimaMision;
+
+    return aux.str();
+}
+
+void Piloto::fromCSV(std::string csv) {
+    std::stringstream aux;
+    string nombre, nacionalidad, incidenciasUltimaMision, numMisiones, fechaUltimamision;
+    aux << csv;
+    getline(aux, nombre, ';');
+    getline(aux, nacionalidad, ';');
+    getline(aux, numMisiones, ';');
+    getline(aux, fechaUltimamision, ';');
+    getline(aux, incidenciasUltimaMision, ';');
+    
+    setNombre(nombre).setNacionalidad(nacionalidad).setNumMisiones(stoi(numMisiones))
+            .setFechaUltimaMision(stol(fechaUltimamision)).setIncidenciasUltimaMision(incidenciasUltimaMision);
 }

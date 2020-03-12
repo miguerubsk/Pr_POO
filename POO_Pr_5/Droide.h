@@ -30,10 +30,11 @@ public:
     std::string getModelo() const;
     std::string getMarca() const;
     
-    void setMarca(std::string marca);
-    void setModelo(std::string modelo);
+    Droide& setMarca(std::string marca);
+    Droide& setModelo(std::string modelo);
     
     std::string toCSV() const;
+    void fromCSV(std::string csv);
     
     Droide& operator=(const Droide& otro);
 };

@@ -30,26 +30,32 @@ StarFighter::StarFighter(const StarFighter& orig) : _marca(orig._marca), _modelo
 StarFighter::~StarFighter() {
 }
 
-void StarFighter::setNumPlazas(int numPlazas) {
+StarFighter& StarFighter::setNumPlazas(int numPlazas) {
     if(numPlazas <= 0)
         throw std::invalid_argument("El número de plazas no puede ser menor o igual a 0");
     this->_numPlazas = numPlazas;
+    
+    return *this;
 }
 
 int StarFighter::getNumPlazas() const {
     return _numPlazas;
 }
 
-void StarFighter::setModelo(string modelo) {
+StarFighter& StarFighter::setModelo(string modelo) {
     this->_modelo = modelo;
+    
+    return *this;
 }
 
 string StarFighter::getModelo() const {
     return _modelo;
 }
 
-void StarFighter::setMarca(string marca) {
+StarFighter& StarFighter::setMarca(string marca) {
     this->_marca = marca;
+    
+    return *this;
 }
 
 string StarFighter::getMarca() const {
@@ -68,6 +74,17 @@ string StarFighter::toCSV() const {
 
     return aux.str();
 }
+
+void StarFighter::fromCSV(std::string csv) {
+    std::stringstream aux;
+    string marca, modelo, numPlazas;
+    aux << csv;
+    getline(aux, marca, ';');
+    getline(aux, modelo, ';');
+    getline(aux, numPlazas, ';');
+    setMarca(marca).setModelo(modelo).setNumPlazas(stoi(numPlazas));
+}
+
 
 StarFighter& StarFighter::operator=(const StarFighter& otro) {
     if (this != &otro) {

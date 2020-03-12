@@ -6,6 +6,7 @@
  */
 
 #include <sstream>
+#include <iostream>
 #include "Droide.h"
 
 using std::string;
@@ -32,16 +33,20 @@ int Droide::getIdD() const {
     return _idD;
 }
 
-void Droide::setModelo(string modelo) {
+Droide& Droide::setModelo(string modelo) {
     this->_modelo = modelo;
+    
+    return *this;
 }
 
 string Droide::getModelo() const {
     return _modelo;
 }
 
-void Droide::setMarca(string marca) {
+Droide& Droide::setMarca(string marca) {
     this->_marca = marca;
+    
+    return *this;
 }
 
 string Droide::getMarca() const {
@@ -62,5 +67,15 @@ Droide& Droide::operator=(const Droide& otro) {
         _marca = otro._marca;
         _modelo = otro._modelo;
     }
-    return ( *this);
+    return *this;
+}
+
+void Droide::fromCSV(std::string csv) {
+    std::stringstream ss;
+    string marca, modelo;
+    ss << csv;
+    getline(ss, marca, ';');
+    getline(ss, modelo, ';');
+    setMarca(marca);
+    setModelo(modelo);
 }

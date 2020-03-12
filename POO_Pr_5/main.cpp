@@ -13,9 +13,7 @@
 
 using namespace std;
 
-/**
- * @todo Ver el enunciado del ejercicio 5 de la práctica
- */
+
 int main(int argc, char** argv) {
     string datosPilotos[5] = {"Dameron Poe;Jakku;100;123456;---",
         "Anakin Skywalker;Tatooine;133;126756;Derribados 3 cazas enemigos",

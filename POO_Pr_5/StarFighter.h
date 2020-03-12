@@ -26,14 +26,19 @@ public:
     StarFighter(std::string marca, std::string modelo);
     StarFighter(const StarFighter& orig);
     virtual ~StarFighter();
-    void setNumPlazas(int numPlazas);
-    int getNumPlazas() const;
-    void setModelo(std::string modelo);
-    std::string getModelo() const;
-    void setMarca(std::string marca);
+    
     std::string getMarca() const;
+    int getNumPlazas() const;
     int getIdSF() const;
+    std::string getModelo() const;
+    
+    StarFighter& setMarca(std::string marca);
+    StarFighter& setNumPlazas(int numPlazas);
+    StarFighter& setModelo(std::string modelo);
+    
     std::string toCSV() const;
+    void fromCSV(std::string csv);
+    
     StarFighter& operator=(const StarFighter& otro);
 };
 

@@ -10,6 +10,8 @@
 
 #include <string>
 #include "StarFighter.h"
+#include "Droide.h"
+#include "Informe.h"
 
 /**
  * @brief
@@ -23,7 +25,8 @@ private:
     int _numMisiones = 0; ///< Número de misiones en que ha participado
     long _fechaUltimaMision = 0; ///< Fecha estelar de su última misión
     std::string _incidenciasUltimaMision; ///< Incidencias reportadas por el piloto en su última misión.
-    StarFighter* nave; ///< Nave del piloto
+    StarFighter* nave = nullptr; ///< Nave del piloto
+    Droide* auxiliar = nullptr; ///< Droide que asiste al piloto
 
 public:
     Piloto();
@@ -38,15 +41,19 @@ public:
     std::string getNacionalidad() const;
     std::string getNombre() const;
     StarFighter* getNave() const;
-    
-    void setNacionalidad(std::string nacionalidad);
-    void setIncidenciasUltimaMision(std::string incidenciasUltimaMision);
-    void setNombre(std::string nombre);
-    void setFechaUltimaMision(long fechaUltimaMision);
-    void setNumMisiones(int numMisiones);
-    void setNave(StarFighter* nave);
-    
+    Droide* getAuxiliar() const;
+
+    Piloto& setNacionalidad(std::string nacionalidad);
+    Piloto& setIncidenciasUltimaMision(std::string incidenciasUltimaMision);
+    Piloto& setNombre(std::string nombre);
+    Piloto& setFechaUltimaMision(long fechaUltimaMision);
+    Piloto& setNumMisiones(int numMisiones);
+    Piloto& setNave(StarFighter* nave);
+    Piloto& setAuxiliar(Droide* auxiliar);
+
     std::string toCSV() const;
+    void fromCSV(std::string csv);
+    Informe generaInforme();
     
     Piloto& operator=(const Piloto& otro);
 };
