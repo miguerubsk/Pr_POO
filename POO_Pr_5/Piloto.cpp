@@ -128,8 +128,8 @@ Piloto& Piloto::setAuxiliar(Droide* auxiliar) {
 
 Informe Piloto::generaInforme() {
     std::stringstream aux;
-    aux     <<"ID StarFighter: " << nave->getIdSF() << std::endl
-            << "ID Droide auxiliar: " << auxiliar->getIdD() << std::endl
+    aux     <<"ID StarFighter: " << nave->getIdSF() << ";"
+            << "ID Droide auxiliar: " << auxiliar->getIdD() << ";"
             << "Incidencias durante la misión: " << _incidenciasUltimaMision;
     Informe informe;
     informe.setIdPiloto(_idP);
@@ -142,10 +142,10 @@ Informe Piloto::generaInforme() {
 string Piloto::toCSV() const {
     std::stringstream aux;
 
-    aux << _nombre << " ; "
-            << _nacionalidad << " ; "
-            << _numMisiones << " ; "
-            << _fechaUltimaMision << " ; "
+    aux << _nombre << ";"
+            << _nacionalidad << ";"
+            << _numMisiones << ";"
+            << _fechaUltimaMision << ";"
             << _incidenciasUltimaMision;
 
     return aux.str();

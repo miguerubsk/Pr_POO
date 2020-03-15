@@ -67,8 +67,8 @@ int Informe::getIdI() const {
 string Informe::toCSV() const {
     std::stringstream aux;
 
-    aux << "Fecha estelar: " << _fechaEstelar << " ; "
-            << "id de piloto: " << _idPiloto << " ; "
+    aux << "Fecha estelar: " << _fechaEstelar << ";"
+            << "id de piloto: " << _idPiloto << ";"
             << _datosInforme;
 
     return aux.str();

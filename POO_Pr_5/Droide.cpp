@@ -35,7 +35,7 @@ int Droide::getIdD() const {
 
 Droide& Droide::setModelo(string modelo) {
     this->_modelo = modelo;
-    
+
     return *this;
 }
 
@@ -45,7 +45,7 @@ string Droide::getModelo() const {
 
 Droide& Droide::setMarca(string marca) {
     this->_marca = marca;
-    
+
     return *this;
 }
 
@@ -56,7 +56,7 @@ string Droide::getMarca() const {
 string Droide::toCSV() const {
     std::stringstream aux;
 
-    aux << _marca << " ; "
+    aux << _marca << ";"
             << _modelo;
 
     return aux.str();

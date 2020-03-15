@@ -8,11 +8,11 @@
 
 #include <cstdlib>
 #include <string>
+#include <iostream>
 
-#include "Informe.h"
+#include "Piloto.h"
 
 using namespace std;
-
 
 int main(int argc, char** argv) {
     string datosPilotos[5] = {"Dameron Poe;Jakku;100;123456;---",
@@ -31,13 +31,25 @@ int main(int argc, char** argv) {
         "AccuTronics;R3-KT",
         "Arakyd Industries;C3PO"};
 
-    // Ejemplo de encadenamiento de llamadas a métodos sobre un objeto
-    Informe i1;
-    i1.setIdPiloto(1)
-            .setFechaEstelar(31521231)
-            .setDatosInforme("Sin novedad");
 
+    Piloto pilotos[5];
+    Droide droides[5];
+    StarFighter naves[5];
 
+    for (int i = 0; i < 5; ++i) {
+        pilotos[i].fromCSV(datosPilotos[i]);
+        droides[i].fromCSV(datosDroides[i]);
+        naves[i].fromCSV(datosNaves[i]);
+    }
+
+    pilotos[1].setNave(&naves[2]).setAuxiliar(&droides[3]);
+    pilotos[2].setAuxiliar(&droides[1]).setNave(&naves[2]);
+    pilotos[3].setAuxiliar(&droides[2]).setNave(&naves[1]);
+
+    Informe i1 = pilotos[1].generaInforme();
+    Informe i2 = pilotos[2].generaInforme();
+
+    std::cout << i1.toCSV() << std::endl << i2.toCSV() << std::endl;
 
     return 0;
 }
