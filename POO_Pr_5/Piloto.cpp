@@ -112,6 +112,8 @@ StarFighter* Piloto::getNave() const {
 }
 
 Piloto& Piloto::setNave(StarFighter* nave) {
+    if(!nave)
+        throw std::invalid_argument("La nave no existe");
     this->nave = nave;
     
     return *this;
@@ -122,6 +124,8 @@ Droide* Piloto::getAuxiliar() const {
 }
 
 Piloto& Piloto::setAuxiliar(Droide* auxiliar) {
+    if(!auxiliar)
+        throw std::invalid_argument("No existe el droide");
     if(auxiliar->isAveriado())
         throw std::invalid_argument("No se puede asignar un droide averiado");
     this->auxiliar = auxiliar;
