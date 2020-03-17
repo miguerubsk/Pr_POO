@@ -27,6 +27,7 @@ _nombre(orig._nombre), _nacionalidad(orig._nacionalidad), _numMisiones(orig._num
 _fechaUltimaMision(orig._fechaUltimaMision), _incidenciasUltimaMision(orig._incidenciasUltimaMision) {
     _numPilotos++;
     _idP = _numPilotos;
+    nave = nullptr;
 }
 
 Piloto::~Piloto() {
@@ -111,6 +112,8 @@ StarFighter* Piloto::getNave() const {
 }
 
 Piloto& Piloto::setNave(StarFighter* nave) {
+    if(!nave)
+        throw std::invalid_argument("La nave no existe");
     this->nave = nave;
     
     return *this;
@@ -121,6 +124,10 @@ Droide* Piloto::getAuxiliar() const {
 }
 
 Piloto& Piloto::setAuxiliar(Droide* auxiliar) {
+    if(!auxiliar)
+        throw std::invalid_argument("No existe el droide");
+    if(auxiliar->isAveriado())
+        throw std::invalid_argument("No se puede asignar un droide averiado");
     this->auxiliar = auxiliar;
     
     return *this;
@@ -128,9 +135,17 @@ Piloto& Piloto::setAuxiliar(Droide* auxiliar) {
 
 Informe Piloto::generaInforme() {
     std::stringstream aux;
-    aux     <<"ID StarFighter: " << nave->getIdSF() << ";"
-            << "ID Droide auxiliar: " << auxiliar->getIdD() << ";"
-            << "Incidencias durante la misión: " << _incidenciasUltimaMision;
+    if(nave){
+        aux <<"ID StarFighter: " << nave->getIdSF() << ";";
+    }else{
+        aux << "ID StarFighter: ---" << ";";
+    }
+    if(auxiliar){
+    aux     << "ID Droide auxiliar: " << auxiliar->getIdD() << ";";
+    }else{
+        aux << "ID Droide auxiliar: ---" << ";";
+    }
+    aux << "Incidencias durante la misión: " << _incidenciasUltimaMision;
     Informe informe;
     informe.setIdPiloto(_idP);
     informe.setFechaEstelar(_fechaUltimaMision);
