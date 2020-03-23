@@ -22,3 +22,11 @@ Escuadron::Escuadron(const Escuadron& orig) {
 Escuadron::~Escuadron() {
 }
 
+int Escuadron::promedioMisiones() {
+    int totalMisiones = 0;
+    for(int i = 0; i < MAX_PILOTOS; ++i){
+        if(integrantes[i])
+            totalMisiones += integrantes[i]->getNumMisiones();
+    }
+    return totalMisiones/numPilotos;
+}

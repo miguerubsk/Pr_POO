@@ -16,7 +16,7 @@
  */
 class StarFighter {
 private:
-    static const int MAX_PIEZAS = 100;
+    static const int MAX_PIEZAS = 50;
     int numPiezas = 0;
     static int _numStarFighters; ///< Número de objetos de esta clase instanciados
     int _idSF = 0; ///< Identificador único de la nave

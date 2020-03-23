@@ -14,13 +14,23 @@
 #ifndef ESCUADRON_H
 #define ESCUADRON_H
 
+#include <string>
+#include "Piloto.h"
+
 class Escuadron {
 public:
     Escuadron();
     Escuadron(const Escuadron& orig);
     virtual ~Escuadron();
+    
+    int promedioMisiones();
+    
 private:
-
+    static const int MAX_PILOTOS = 50;
+    std::string nombre;
+    int numPilotos;
+    std::string base;
+    Piloto *integrantes[MAX_PILOTOS];
 };
 
 #endif /* ESCUADRON_H */

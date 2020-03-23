@@ -15,7 +15,8 @@ using std::string;
 int StarFighter::_numStarFighters = 0;
 
 StarFighter::StarFighter() : StarFighter("", "") {
-    for (int i = 0; i < MAX_PIEZAS; ++i){
+    addPieza("Motor", 50, "Permite que la nave vuele");
+    for (int i = 1; i < MAX_PIEZAS; ++i){
         piezas[i] = nullptr;
     }
 }
@@ -23,7 +24,8 @@ StarFighter::StarFighter() : StarFighter("", "") {
 StarFighter::StarFighter(string marca, string modelo) : _marca(marca), _modelo(modelo) {
     _numStarFighters++;
     _idSF = _numStarFighters;
-    for (int i = 0; i < MAX_PIEZAS; ++i){
+    addPieza("Motor", 50, "Permite que la nave vuele");
+    for (int i = 1; i < MAX_PIEZAS; ++i){
         piezas[i] = nullptr;
     }
 }
@@ -31,7 +33,8 @@ StarFighter::StarFighter(string marca, string modelo) : _marca(marca), _modelo(m
 StarFighter::StarFighter(const StarFighter& orig) : _marca(orig._marca), _modelo(orig._modelo), _numPlazas(orig._numPlazas) {
     _numStarFighters++;
     _idSF = _numStarFighters;
-    for (int i = 0; i < MAX_PIEZAS; ++i){
+    addPieza("Motor", 50, "Permite que la nave vuele");
+    for (int i = 1; i < MAX_PIEZAS; ++i){
         piezas[i] = nullptr;
     }
 }
