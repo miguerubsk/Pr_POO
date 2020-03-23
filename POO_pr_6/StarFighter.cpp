@@ -15,19 +15,32 @@ using std::string;
 int StarFighter::_numStarFighters = 0;
 
 StarFighter::StarFighter() : StarFighter("", "") {
+    for (int i = 0; i < MAX_PIEZAS; ++i){
+        piezas[i] = nullptr;
+    }
 }
 
 StarFighter::StarFighter(string marca, string modelo) : _marca(marca), _modelo(modelo) {
     _numStarFighters++;
     _idSF = _numStarFighters;
+    for (int i = 0; i < MAX_PIEZAS; ++i){
+        piezas[i] = nullptr;
+    }
 }
 
 StarFighter::StarFighter(const StarFighter& orig) : _marca(orig._marca), _modelo(orig._modelo), _numPlazas(orig._numPlazas) {
     _numStarFighters++;
     _idSF = _numStarFighters;
+    for (int i = 0; i < MAX_PIEZAS; ++i){
+        piezas[i] = nullptr;
+    }
 }
 
 StarFighter::~StarFighter() {
+    for (int i = 0; i < numPiezas; ++i){
+         delete piezas[i];
+         piezas[i] = nullptr;
+    }
 }
 
 StarFighter& StarFighter::setNumPlazas(int numPlazas) {
@@ -93,4 +106,15 @@ StarFighter& StarFighter::operator=(const StarFighter& otro) {
     }
 
     return *this;
+}
+
+void StarFighter::addPieza(std::string _nombre, float _peso, std::string _descripcion) {
+    piezas[numPiezas] = new Pieza(_nombre, _peso, _descripcion);
+    ++numPiezas;
+}
+
+void StarFighter::eliminarPieza(std::string _nombre) {
+    delete piezas[numPiezas];
+    piezas[numPiezas] = nullptr;
+    --numPiezas;
 }
