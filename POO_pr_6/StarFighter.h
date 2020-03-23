@@ -23,7 +23,7 @@ private:
     std::string _marca; ///< Marca de la nave (parece que las VW contaminan más)
     std::string _modelo; ///< Modelo de la nava
     int _numPlazas; ///< Número de plazas de la nave
-    Pieza *piezas[MAX_PIEZAS];
+    Pieza *partes[MAX_PIEZAS];
 
 public:
     StarFighter();
