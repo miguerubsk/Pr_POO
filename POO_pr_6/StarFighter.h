@@ -44,6 +44,7 @@ public:
     void fromCSV(std::string csv);
     void addPieza(std::string _nombre, float _peso, std::string _descripcion);
     void eliminarPieza(std::string _nombre);
+    int calcularPeso();
     
     StarFighter& operator=(const StarFighter& otro);
 };

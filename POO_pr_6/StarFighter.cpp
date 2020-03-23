@@ -118,3 +118,12 @@ void StarFighter::eliminarPieza(std::string _nombre) {
     piezas[numPiezas] = nullptr;
     --numPiezas;
 }
+
+int StarFighter::calcularPeso() {
+    int peso = 0;
+    for(int i = 0; i < numPiezas; ++i){
+        if(piezas[i])
+            peso += piezas[i]->getPeso();
+    }
+    return peso;
+}
