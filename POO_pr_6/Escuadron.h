@@ -24,6 +24,7 @@ public:
     virtual ~Escuadron();
     
     int promedioMisiones();
+    void addPiloto(Piloto* piloto);
     
 private:
     static const int MAX_PILOTOS = 50;

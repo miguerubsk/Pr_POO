@@ -30,3 +30,8 @@ int Escuadron::promedioMisiones() {
     }
     return totalMisiones/numPilotos;
 }
+
+void Escuadron::addPiloto(Piloto* piloto) {
+    integrantes[numPilotos] = piloto;
+    ++numPilotos;
+}
