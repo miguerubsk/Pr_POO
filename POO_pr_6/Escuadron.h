@@ -25,6 +25,7 @@ public:
     
     int promedioMisiones();
     void addPiloto(Piloto* piloto);
+    void eliminarPiloto();
     
 private:
     static const int MAX_PILOTOS = 50;

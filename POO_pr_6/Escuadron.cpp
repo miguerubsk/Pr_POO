@@ -35,3 +35,9 @@ void Escuadron::addPiloto(Piloto* piloto) {
     integrantes[numPilotos] = piloto;
     ++numPilotos;
 }
+
+void Escuadron::eliminarPiloto() {
+    delete integrantes[numPilotos];
+    integrantes[numPilotos] = nullptr;
+    --numPilotos;
+}
