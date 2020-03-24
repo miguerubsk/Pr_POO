@@ -20,13 +20,15 @@
 class Escuadron {
 public:
     Escuadron();
-    Escuadron(std::string nombre, std::string base);
+    Escuadron(std::string nombre, std::string base, Piloto* piloto);
     Escuadron(const Escuadron& orig);
     virtual ~Escuadron();
     
     std::string getBase() const;
     std::string getNombre() const;
     int getNumPilotos() const;
+    std::string getNombrePiloto(int pos);
+    bool estaEnMision() const;
     
     void setBase(std::string base);
     void setNombre(std::string nombre);
@@ -35,6 +37,10 @@ public:
     int promedioMisiones();
     Escuadron& addPiloto(Piloto* piloto);
     Escuadron& eliminarPiloto();
+    void comenzarMision();
+    
+    Escuadron operator+(Escuadron& right) const;
+
     
 private:
     static const int MAX_PILOTOS = 50;
@@ -42,6 +48,7 @@ private:
     int numPilotos = 0;
     std::string base;
     Piloto *integrantes[MAX_PILOTOS];
+    bool enMision = false;
 };
 
 #endif /* ESCUADRON_H */

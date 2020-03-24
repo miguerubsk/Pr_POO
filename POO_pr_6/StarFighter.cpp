@@ -38,7 +38,6 @@ StarFighter::StarFighter(const StarFighter& orig) : _marca(orig._marca), _modelo
 StarFighter::~StarFighter() {
     for (int i = 0; i < numPiezas; ++i){
          delete partes[i];
-         partes[i] = nullptr;
     }
 }
 
