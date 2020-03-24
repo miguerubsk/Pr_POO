@@ -15,16 +15,12 @@ using std::string;
 int StarFighter::_numStarFighters = 0;
 
 StarFighter::StarFighter() : StarFighter("", "") {
-    addPieza("Motor", 50, "Permite que la nave vuele");
-    for (int i = 1; i < MAX_PIEZAS; ++i){
-        partes[i] = nullptr;
-    }
 }
 
-StarFighter::StarFighter(string marca, string modelo) : _marca(marca), _modelo(modelo) {
+StarFighter::StarFighter(string marca, string modelo) : _marca(marca), _modelo(modelo), numPiezas(0) {
     _numStarFighters++;
     _idSF = _numStarFighters;
-    addPieza("Motor", 50, "Permite que la nave vuele");
+    this->addPieza("Motor", 50, "Permite que la nave vuele");
     for (int i = 1; i < MAX_PIEZAS; ++i){
         partes[i] = nullptr;
     }
@@ -33,7 +29,7 @@ StarFighter::StarFighter(string marca, string modelo) : _marca(marca), _modelo(m
 StarFighter::StarFighter(const StarFighter& orig) : _marca(orig._marca), _modelo(orig._modelo), _numPlazas(orig._numPlazas) {
     _numStarFighters++;
     _idSF = _numStarFighters;
-    addPieza("Motor", 50, "Permite que la nave vuele");
+    this->addPieza("Motor", 50, "Permite que la nave vuele");
     for (int i = 1; i < MAX_PIEZAS; ++i){
         partes[i] = nullptr;
     }
@@ -112,21 +108,20 @@ StarFighter& StarFighter::operator=(const StarFighter& otro) {
 }
 
 void StarFighter::addPieza(std::string _nombre, float _peso, std::string _descripcion) {
-    partes[numPiezas] = new Pieza(_nombre, _peso, _descripcion);
-    ++numPiezas;
+    this->partes[numPiezas] = new Pieza(_nombre, _peso, _descripcion);
+    ++this->numPiezas;
 }
 
 void StarFighter::eliminarPieza(std::string _nombre) {
-    delete partes[numPiezas];
-    partes[numPiezas] = nullptr;
-    --numPiezas;
+    delete this->partes[numPiezas];
+    this->partes[numPiezas] = nullptr;
+    --this->numPiezas;
 }
 
 int StarFighter::calcularPeso() {
     int peso = 0;
-    for(int i = 0; i < numPiezas; ++i){
-        if(partes[i])
-            peso += partes[i]->getPeso();
+    for(int i = 0; i < this->numPiezas; ++i){
+        peso += this->partes[i]->getPeso();
     }
     return peso;
 }
