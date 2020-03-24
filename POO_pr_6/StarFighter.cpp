@@ -15,13 +15,9 @@ using std::string;
 int StarFighter::_numStarFighters = 0;
 
 StarFighter::StarFighter() : StarFighter("", "") {
-    this->addPieza("Motor", 50, "Permite que la nave vuele");
-    for (int i = 1; i < MAX_PIEZAS; ++i){
-        partes[i] = nullptr;
-    }
 }
 
-StarFighter::StarFighter(string marca, string modelo) : _marca(marca), _modelo(modelo) {
+StarFighter::StarFighter(string marca, string modelo) : _marca(marca), _modelo(modelo), numPiezas(0) {
     _numStarFighters++;
     _idSF = _numStarFighters;
     this->addPieza("Motor", 50, "Permite que la nave vuele");
@@ -112,20 +108,20 @@ StarFighter& StarFighter::operator=(const StarFighter& otro) {
 }
 
 void StarFighter::addPieza(std::string _nombre, float _peso, std::string _descripcion) {
-    partes[numPiezas] = new Pieza(_nombre, _peso, _descripcion);
-    ++numPiezas;
+    this->partes[numPiezas] = new Pieza(_nombre, _peso, _descripcion);
+    ++this->numPiezas;
 }
 
 void StarFighter::eliminarPieza(std::string _nombre) {
-    delete partes[numPiezas];
-    partes[numPiezas] = nullptr;
-    --numPiezas;
+    delete this->partes[numPiezas];
+    this->partes[numPiezas] = nullptr;
+    --this->numPiezas;
 }
 
 int StarFighter::calcularPeso() {
     int peso = 0;
-    for(int i = 0; i < numPiezas-1; ++i){
-        peso += partes[i]->getPeso();
+    for(int i = 0; i < this->numPiezas; ++i){
+        peso += this->partes[i]->getPeso();
     }
     return peso;
 }

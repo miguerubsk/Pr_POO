@@ -37,6 +37,7 @@ int main(int argc, char** argv) {
 
 
     Piloto pilotos[5];
+//    StarFighter s1;
     StarFighter s1, s2;
     s1.fromCSV(datosNaves[0]);
     s2.fromCSV(datosNaves[1]);
@@ -59,7 +60,7 @@ int main(int argc, char** argv) {
     std::cout << e2.getNombre() << " - Promedio de misiones: " << e2.promedioMisiones() << std::endl;
     
     std::cout << s1.getModelo() << " - Peso: " << s1.calcularPeso() << "\n";
-    std::cout << s2.getModelo() << " - Peso: " << s1.calcularPeso() << "\n";
+    std::cout << s2.getModelo() << " - Peso: " << s2.calcularPeso() << "\n";
 
     return 0;
 }
