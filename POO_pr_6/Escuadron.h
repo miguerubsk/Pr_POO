@@ -20,17 +20,26 @@
 class Escuadron {
 public:
     Escuadron();
+    Escuadron(std::string nombre, std::string base);
     Escuadron(const Escuadron& orig);
     virtual ~Escuadron();
     
+    std::string getBase() const;
+    std::string getNombre() const;
+    int getNumPilotos() const;
+    
+    void setBase(std::string base);
+    void setNombre(std::string nombre);
+
+    
     int promedioMisiones();
-    void addPiloto(Piloto* piloto);
-    void eliminarPiloto();
+    Escuadron& addPiloto(Piloto* piloto);
+    Escuadron& eliminarPiloto();
     
 private:
     static const int MAX_PILOTOS = 50;
     std::string nombre;
-    int numPilotos;
+    int numPilotos = 0;
     std::string base;
     Piloto *integrantes[MAX_PILOTOS];
 };
