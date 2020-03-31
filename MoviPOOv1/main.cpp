@@ -32,11 +32,11 @@ int main(int argc, char** argv) {
         std::cerr << e.what();
     }
     //e) Asignar (con operador = ) el primer usuario al tercero. Con el tercer usuario
-    // visualizar su identificador, nº de contactos disponibles (pueden ser llamados)
-    // y el identificador de su primer contacto
     user3 = user1;
+    // visualizar su identificador, nº de contactos disponibles (pueden ser llamados)
     std::cout << "Identificador: " << user3.getIdentificador();
     std::cout << "\nContactos disponibles: " << user3.contactosDisponibles();
+    // y el identificador de su primer contacto
     std::cout << "\nIdentificador del contacto 1: " << user3.getContacto(0).getIdentificador();
     //f) liberar los recursos que sea necesario
 
