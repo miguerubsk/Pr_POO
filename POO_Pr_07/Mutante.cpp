@@ -116,7 +116,7 @@ void Mutante::borraPoder(int cual) {
 float Mutante::capacidadDestructivaTotal() {
     float temp = 0;
     for (int i = 0; i < numPoderes; ++i){
-        if(poderes[i])
+        if(!poderes[i]->IsInhibido())
             temp += poderes[i]->GetCapacidadDestructiva();
     }
     return temp;

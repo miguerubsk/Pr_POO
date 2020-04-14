@@ -19,7 +19,7 @@
 class Poder {
 public:
     Poder();
-    Poder(std::string nombre, std::string descripcion, std::string afectaA, float capacidadDestructiva);
+    Poder(std::string nombre, std::string descripcion, std::string afectaA, float capacidadDestructiva, bool inhibido = false);
     Poder(const Poder& orig);
     virtual ~Poder();
     
@@ -27,11 +27,13 @@ public:
     float GetCapacidadDestructiva() const;
     std::string GetDescripcion() const;
     std::string GetNombre() const;
+    bool IsInhibido() const;
 
     void SetAfectaA(std::string afectaA);
     void SetCapacidadDestructiva(float capacidadDestructiva);
     void SetDescripcion(std::string descripcion);
     void SetNombre(std::string nombre);
+    void SetInhibido(bool inhibido);
 
     Poder& operator=(const Poder& right);
 
@@ -42,6 +44,7 @@ private:
     std::string descripcion;
     std::string afectaA;
     float capacidadDestructiva;
+    bool inhibido = false;
     
 };
 

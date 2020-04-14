@@ -17,8 +17,8 @@
 Poder::Poder() {
 }
 
-Poder::Poder(std::string nombre, std::string descripcion, std::string afectaA, float capacidadDestructiva) :
-nombre(nombre), descripcion(descripcion), afectaA(afectaA), capacidadDestructiva(capacidadDestructiva) {
+Poder::Poder(std::string nombre, std::string descripcion, std::string afectaA, float capacidadDestructiva, bool inhibido):
+nombre(nombre), descripcion(descripcion), afectaA(afectaA), capacidadDestructiva(capacidadDestructiva), inhibido(inhibido) {
 }
 
 Poder::Poder(const Poder& orig) {
@@ -26,6 +26,7 @@ Poder::Poder(const Poder& orig) {
     descripcion = orig.descripcion;
     afectaA = orig.afectaA;
     capacidadDestructiva = orig.capacidadDestructiva;
+    inhibido = orig.inhibido;
 }
 
 Poder::~Poder() {
@@ -45,6 +46,14 @@ std::string Poder::GetDescripcion() const {
 
 std::string Poder::GetNombre() const {
     return nombre;
+}
+
+bool Poder::IsInhibido() const {
+    return inhibido;
+}
+
+void Poder::SetInhibido(bool inhibido) {
+    this->inhibido = inhibido;
 }
 
 void Poder::SetAfectaA(std::string afectaA) {
