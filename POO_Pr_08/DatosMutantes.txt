@@ -1,0 +1,6 @@
+NombreReal;Apodo;FechaDeNacimiento;Nacionalidad
+Lucas;Riuca;202006;Tazmily
+Claus;Masked Man;202006;Tazmily
+Ness;Giygas;271994;Onett
+Kumatora;Violet;202006;Osohe
+Duster;Wess;202006;Tazmily
