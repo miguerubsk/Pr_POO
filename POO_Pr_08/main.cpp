@@ -21,7 +21,16 @@ void visualiza(Mutante& m) {
     for (int i = 0; i < m.getNumPoderes(); ++i) {
         std::cout << m.getPoder(i)->GetNombre() << std::endl;
     }
+}
 
+void visualiza(Mutante* m) {
+    std::cout << "MUTANTE: "
+            << m->toCSV() << std::endl;
+    std::cout << "  Poderes : " << std::endl;
+    //ToDo, Mostrar los poderes del mutante
+    for (int i = 0; i < m->getNumPoderes(); ++i) {
+        std::cout << "    " << m->getPoder(i)->GetNombre() << std::endl;
+    }
 }
 
 /***@brief Visualiza los datos de todos los miembros de un equipo mutante*/
@@ -38,17 +47,45 @@ void visualiza(EquipoMutante& eq) {
 
 //ToDo, Método para almacenar un vector de punteros a mutantes
 
-void almacenaMutantesCSV(Mutante* v[], int tamv, std::string nombreArchivo) {
+void almacenaMutantesCSV(Mutante* v[], int tamv, string nombreArchivo) {
     ofstream fs;
     fs.open(nombreArchivo, ofstream::trunc);
     if (fs.good()) {
-        fs << "NombreReal;Apodo;FechaDeNacimiento;Nacionalidad" << endl;
+//        fs << "NombreReal;Apodo;FechaDeNacimiento;Nacionalidad" << endl;
         for (int i = 0; i < tamv; ++i) {
             fs << v[i]->toCSV() << endl;
         }
         fs.close();
     } else {
         std::cerr << "No se puede crear el fichero" << endl;
+    }
+}
+
+void recuperaMutantesCSV(Mutante* v[], int tamv, string nombreArchivo){
+    ifstream fe;
+    string linea;
+    string Nombre, apodo, fecha, nacionalidad;
+    int total = 0;
+    
+    fe.open(nombreArchivo);
+    if(fe.good()){
+//        getline(fe, linea);
+        getline(fe, linea);
+        while(!fe.eof() && total < tamv){
+            stringstream ss;
+            ss << linea;
+            
+            getline(ss, Nombre, ';');
+            getline(ss, apodo, ';');
+            getline(ss, fecha, ';');
+            getline(ss, nacionalidad, ';');
+            v[total] = new Mutante(Nombre, apodo, stoi(fecha), nacionalidad);
+            getline(fe, linea);
+            ++total;
+        }
+        fe.close();
+    }else{
+        std::cerr << "No se puede abrir el fichero" << std::endl;
     }
 }
 
@@ -76,21 +113,15 @@ int main(int argc, char** argv) {
     // Crea un array de 5 punteros a mutantes, asignándoles los valores a sus
     // atributos directamente en el código fuente
 
-    Mutante * mutantes[5];
-    mutantes[0] = new Mutante("Lucas", "Riuca", 202006, "Tazmily");
-    mutantes[1] = new Mutante("Claus", "Masked Man", 202006, "Tazmily");
-    mutantes[2] = new Mutante("Ness", "Giygas", 271994, "Onett");
-    mutantes[3] = new Mutante("Kumatora", "Violet", 202006, "Osohe");
-    mutantes[4] = new Mutante("Duster", "Wess", 202006, "Tazmily");
+    Mutante *mutantes[5];
+    recuperaMutantesCSV(mutantes, 5, "DatosMutantes.txt");
+//    mutantes[0] = new Mutante("Lucas", "Riuca", 202006, "Tazmily");
+//    mutantes[1] = new Mutante("Claus", "Masked Man", 202006, "Tazmily");
+//    mutantes[2] = new Mutante("Ness", "Giygas", 271994, "Onett");
+//    mutantes[3] = new Mutante("Kumatora", "Violet", 202006, "Osohe");
+//    mutantes[4] = new Mutante("Duster", "Wess", 202006, "Tazmily");
 
-    // Crea dos equipos mutantes, asignando al primero los mutantes que ocupan
-    // las posiciones pares del array, y al segundo los de las posiciones impares
-    EquipoMutante eq1("Equipo 1", "Onett"), eq2("Equipo 2", "Osohe");
-    eq1.addMutante(mutantes[0]);
-    eq1.addMutante(mutantes[2]);
-    eq1.addMutante(mutantes[4]);
-    eq2.addMutante(mutantes[1]);
-    eq2.addMutante(mutantes[3]);
+    
 
 
     // Añade varios poderes a cada mutante, utilizando los métodos ya
@@ -114,14 +145,13 @@ int main(int argc, char** argv) {
 
     mutantes[4]->addPoderPsiquico("PSI LiveUp", "Sana a los aliados", "Un solo aliado", 0);
     mutantes[4]->addPoder("PK Fire", "Lanza fuego", "Un enemigo", 300);
-
-    // Muestra por la consola la información de cada equipo mutante en formato CSV
-    std::cout << eq1.toCSV() << std::endl;
-    std::cout << eq2.toCSV() << std::endl;
-
+    mutantes[4]->addPoderPsiquico("Asfixia", "Ahoga al enemigo", "biologico", 600);
     //Guardamos datos de mutantes en fichero CSV
     almacenaMutantesCSV(mutantes, 5, "DatosMutantes.txt");
-    almacenaEquipoCSV(eq1, "DatosEquipo1.txt");
+    
+    for(int i = 0; i < 5; ++i){
+        visualiza(mutantes[i]);
+    }
     
     cout << "Poder destructivo: " << mutantes[3]->capacidadDestructivaTotal();
 

@@ -24,7 +24,7 @@ public:
     virtual ~Poder();
     
     std::string GetAfectaA() const;
-    float GetCapacidadDestructiva() const;
+    virtual float GetCapacidadDestructiva() const;
     std::string GetDescripcion() const;
     std::string GetNombre() const;
     bool IsInhibido() const;
@@ -36,8 +36,9 @@ public:
     void SetInhibido(bool inhibido);
 
     Poder& operator=(const Poder& right);
+    virtual bool operator>(const Poder& right) const;
 
-    std::string toCSV() const;
+    virtual std::string toCSV() const;
     
 private:
     std::string nombre;

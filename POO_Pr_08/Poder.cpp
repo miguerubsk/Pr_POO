@@ -90,3 +90,7 @@ std::string Poder::toCSV() const {
     
     return ss.str();
 }
+
+bool Poder::operator>(const Poder& right) const {
+    return this->capacidadDestructiva > right.capacidadDestructiva ? true : false;
+}

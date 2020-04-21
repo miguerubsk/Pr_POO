@@ -15,7 +15,7 @@
 #define PODERPSIQUICO_H
 
 #include "Poder.h"
-
+#include <sstream>
 
 class PoderPsiquico: public Poder {
 public:
@@ -23,11 +23,19 @@ public:
     PoderPsiquico(std::string nombre, std::string descripcion, std::string afectaA, float capacidadDestructiva);
     PoderPsiquico(const PoderPsiquico& orig);
     
+    float GetLucidez() const;
+    float GetCapacidadDestructiva() const override;
+    
+    void SetLucidez(float lucidez);
+    
     PoderPsiquico& operator=(const PoderPsiquico& right);
+    bool operator>(const Poder& right) const override;
+    
+    std::string toCSV() const override;
     
     virtual ~PoderPsiquico();
 private:
-
+    float lucidez = 1;
 };
 
 #endif /* PODERPSIQUICO_H */
