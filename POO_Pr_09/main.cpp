@@ -10,6 +10,9 @@
 
 #include "Cofre.h"
 #include "Item.h"
+#include "Bloque.h"
+#include "Espada.h"
+#include "Filete.h"
 using namespace std;
 
 /**Inicializa el vector de items inicial
@@ -19,11 +22,11 @@ using namespace std;
 int inicializaItems(Item* v[], int tamv) {
     int numItems=0;
 
-    v[numItems++] = new Item("Bloque de tierra (5)");
-    v[numItems++] = new Item("Bloque de tierra (8)");
-    v[numItems++] = new Item("Bloque de tierra (1)");    
-    v[numItems++] = new Item("Espada de madera");   
-    v[numItems++] = new Item("Muslo de pollo");       
+    v[numItems++] = new Bloque(5);
+    v[numItems++] = new Bloque(8);
+    v[numItems++] = new Bloque(1);    
+    v[numItems++] = new Espada();   
+    v[numItems++] = new Filete();       
 
     //Asigna nullptr el resto de posiciones no ocupadas
     for (int i = numItems; i < tamv; i++) {

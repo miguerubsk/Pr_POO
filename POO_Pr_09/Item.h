@@ -5,21 +5,15 @@
  * @date    15 de abril de 2016
  */
 
-#include <string>
+#include <iostream>
 
 #ifndef ITEM_H
 #define ITEM_H
 
 class Item {
 public:
-    Item() = default;
-    Item(std::string descripcion);
-    Item(const Item& orig) = default;
-    virtual ~Item();
-    void setDescripcion(std::string descripcion);
-    std::string getDescripcion() const;
-private:
-    std::string _descripcion = "Desconocido";
+    virtual std::string getDescripcion() const;
+
 };
 
 #endif /* ITEM_H */
