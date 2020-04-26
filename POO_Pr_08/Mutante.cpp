@@ -30,7 +30,7 @@ Mutante::Mutante(const Mutante& orig)
 }
 
 Mutante::~Mutante() {
-    for(int i = 0; i < MAX_PODERES; ++i){
+    for(int i = 0; i < numPoderes; ++i){
         delete poderes[i];
     }
 }
@@ -113,7 +113,7 @@ void Mutante::borraPoder(int cual) {
     --cual;
 }
 
-float Mutante::capacidadDestructivaTotal() {
+float Mutante::capacidadDestructivaTotal(){
     float temp = 0;
     for (int i = 0; i < numPoderes; ++i){
         if(!poderes[i]->IsInhibido())
@@ -155,4 +155,10 @@ void Mutante::addPoderPsiquico(const PoderPsiquico& poder) {
         throw std::overflow_error("Mutante.cpp - addPoder() - No es posible añadir más poderes al mutante");
     poderes[numPoderes] = new PoderPsiquico(poder);
     ++numPoderes;
+}
+
+bool Mutante::operator<(const Mutante& right) const {
+    if(right.capacidadDestructivaTotal() < capacidadDestructivaTotal())
+        return true;
+    return false;
 }

@@ -41,19 +41,20 @@ public:
     void setApodo(string apodo);
     
     void addPoder(string nombre, string descripcion, string afectaA, float capacidadD);
-    void addPoderPsiquico(string nombre, string descripcion, string afectaA, float capacidadD);
+    virtual void addPoderPsiquico(string nombre, string descripcion, string afectaA, float capacidadD);
     void addPoderFisico(string nombre, string descripcion, string afectaA, float capacidadD);
     void borraPoder(int cual);
-    void addPoder(const Poder &poder);
-    void addPoderPsiquico(const PoderPsiquico &poder);
+    virtual void addPoder(const Poder &poder);
+    virtual void addPoderPsiquico(const PoderPsiquico &poder);
     void addPoderFisico(const PoderFisico &poder);
-    float capacidadDestructivaTotal();
+    virtual float capacidadDestructivaTotal();
 
     string toCSV() const;
 
     Mutante& operator=(const Mutante& orig);
+    bool operator<(const Mutante& right) const;
 
-private:
+protected:
     string _nombreReal = "---";
     string _apodo = "---";
     int _fechaDeNacimiento = 0;
