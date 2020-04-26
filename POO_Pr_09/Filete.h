@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/* 
- * File:   Filete.h
- * Author: Miguerubsk
- *
- * Created on 25 de abril de 2020, 16:24
+/** 
+ * @file    Filete.h
+ * @author  jrbalsas
+ * 
+ * @date    15 de abril de 2016
  */
 
 #ifndef FILETE_H
@@ -16,17 +10,16 @@
 
 #include "Item.h"
 
-
 class Filete: public Item {
 public:
-    Filete();
+    Filete() = default;
     Filete(const Filete& orig);
     virtual ~Filete();
-    
-    std::string getDescripcion() const override;
-    
+
+    virtual std::string getDescripcion() const;
+
 private:
-    std::string descripcion;
+
 };
 
 #endif /* FILETE_H */

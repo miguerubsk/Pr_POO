@@ -4,29 +4,26 @@
  * and open the template in the editor.
  */
 
-/* 
- * File:   Espada.h
- * Author: Miguerubsk
- *
- * Created on 25 de abril de 2020, 16:24
+/** 
+ * @file    Espada.h
+ * @author  jrbalsas
+ * 
+ * @date    15 de abril de 2016
  */
 
 #ifndef ESPADA_H
 #define ESPADA_H
-
 #include "Item.h"
-
 
 class Espada: public Item {
 public:
-    Espada();
+    Espada() = default;
     Espada(const Espada& orig);
     virtual ~Espada();
-    
-    std::string getDescripcion() const override;
-    
+
+    virtual std::string getDescripcion() const;
+
 private:
-    std::string descripcion;
 };
 
 #endif /* ESPADA_H */
