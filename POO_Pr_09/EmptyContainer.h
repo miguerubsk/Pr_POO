@@ -1,8 +1,14 @@
-/** 
- * @file    EmptyContainer.h
- * @author  jrbalsas
- * 
- * @date    16 de abril de 2016
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/* 
+ * File:   EmptyContainer.h
+ * Author: Miguerubsk
+ *
+ * Created on 26 de abril de 2020, 18:49
  */
 
 #ifndef EMPTYCONTAINER_H
@@ -10,7 +16,7 @@
 
 #include <stdexcept>
 
-/**@brief Excepción para indicar intentos de extracción sobre un contenedor  vacío*/
+
 class EmptyContainer: public std::domain_error {
 public:
     EmptyContainer(std::string error);
