@@ -24,6 +24,7 @@ public:
     virtual ~Espada();
 
     virtual std::string getDescripcion() const;
+    bool esEquipable() override;
 
 private:
 };

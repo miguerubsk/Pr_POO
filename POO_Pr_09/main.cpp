@@ -13,6 +13,9 @@
 #include "Bloque.h"
 #include "Espada.h"
 #include "Filete.h"
+#include "ItemProteccion.h"
+#include "Escudo.h"
+#include "ProteccionDestruida.h"
 using namespace std;
 
 /**Inicializa el vector de items inicial
@@ -58,28 +61,37 @@ void visualiza(Cofre &c) {
  * 
  */
 int main(int argc, char** argv) {
-    try {
-        const int MAXITEMS = 10;
-        Item * objetos[MAXITEMS];
-
-        //Inicializamos algunos objetos de prueba
-        int numObjetos = inicializaItems(objetos, MAXITEMS);
-
-        Cofre c; //Creamos un cofre con 27 posiciones
-
-        //Metemos todos los objetos en el cofre
-
-        for (int i = 0; i < numObjetos; i++) {
-            c.mete(objetos[i]);
-        }
-
-        visualiza(c);
-
-        //Liberamos recursos
-        liberaItems(objetos, numObjetos);
-    } catch (std::exception &e) {
-        std::cerr << e.what();
+//    try {
+//        const int MAXITEMS = 10;
+//        Item * objetos[MAXITEMS];
+//
+//        //Inicializamos algunos objetos de prueba
+//        int numObjetos = inicializaItems(objetos, MAXITEMS);
+//
+//        Cofre c; //Creamos un cofre con 27 posiciones
+//
+//        //Metemos todos los objetos en el cofre
+//
+//        for (int i = 0; i < numObjetos; i++) {
+//            c.mete(objetos[i]);
+//        }
+//
+//        visualiza(c);
+//
+//        //Liberamos recursos
+//        liberaItems(objetos, numObjetos);
+//    } catch (std::exception &e) {
+//        std::cerr << e.what();
+//    }
+    
+    Escudo* escudo = new Escudo();
+    try{
+    cout << "Daño recibido: " << escudo->reducir(10) << endl;
+    cout << "Daño recibido: " << escudo->reducir(10) << endl;
+    cout << "Daño recibido: " << escudo->reducir(10) << endl;
+    cout << "Daño recibido: " << escudo->reducir(10) << endl;
+    }catch (ProteccionDestruida &e){
+        cerr << e.what();
     }
     return 0;
 }
-

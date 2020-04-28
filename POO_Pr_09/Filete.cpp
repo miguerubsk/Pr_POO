@@ -25,3 +25,7 @@ Filete::~Filete() {
 std::string Filete::getDescripcion() const {
     return "Un filete";
 }
+
+bool Filete::esEquipable() {
+    return false;
+}

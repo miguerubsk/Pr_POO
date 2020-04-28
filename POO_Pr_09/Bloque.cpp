@@ -32,3 +32,7 @@ std::string Bloque::getDescripcion() const {
        << getNumElementos() << ") ";    
     return ss.str();
 }
+
+bool Bloque::esEquipable() {
+    return false;
+}

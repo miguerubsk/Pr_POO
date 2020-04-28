@@ -12,6 +12,7 @@
 
 class Item {
 public:
+    virtual bool esEquipable()=0;
     virtual std::string getDescripcion() const=0;
     virtual ~Item() {};
 };

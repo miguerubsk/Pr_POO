@@ -24,6 +24,7 @@ public:
     virtual ~Filete();
     
     std::string getDescripcion() const override;
+    bool esEquipable() override;
     
 private:
     std::string descripcion;

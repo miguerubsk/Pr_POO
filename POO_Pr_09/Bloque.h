@@ -25,6 +25,8 @@ public:
     Bloque(const Bloque& orig);
     virtual ~Bloque();
     virtual std::string getDescripcion() const;
+    bool esEquipable() override;
+
 private:
     
 

@@ -19,9 +19,9 @@
 
 class EmptyContainer: public std::domain_error {
 public:
-    EmptyContainer(std::string error);
-    EmptyContainer(const EmptyContainer& orig);
-    virtual ~EmptyContainer() noexcept;
+    EmptyContainer(std::string error):std::domain_error(error){};
+    EmptyContainer(const EmptyContainer& orig):std::domain_error(orig){};
+    virtual ~EmptyContainer() noexcept{};
 private:
 
 };

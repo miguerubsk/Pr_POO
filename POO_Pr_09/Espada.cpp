@@ -23,3 +23,7 @@ Espada::~Espada() {
 std::string Espada::getDescripcion() const {
     return "Una espada";
 }
+
+bool Espada::esEquipable() {
+    return true;
+}

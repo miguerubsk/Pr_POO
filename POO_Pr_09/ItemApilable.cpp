@@ -44,3 +44,7 @@ void ItemApilable::decrementaNumElementos(unsigned int cantidad) {
 unsigned int ItemApilable::getNumElementos() const {
     return _numElementos;
 }
+
+bool ItemApilable::esEquipable() {
+    return false;
+}
