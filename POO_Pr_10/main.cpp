@@ -52,7 +52,8 @@ void liberaItems(Item* v[], int numItems) {
 
 }
 
-void visualiza(Contenedor<Item> &c) {
+template <typename T>
+void visualiza(Contenedor<T> &c) {
     std::cout << "CONTENIDO DEL CONTENEDOR" << std::endl
             << "===================" << std::endl;
     for (int i = 1; i <= c.cuantosHay(); i++) {
