@@ -20,6 +20,8 @@
 #include "Espada.h"
 #include "Filete.h"
 #include "Inventario.h"
+#include "PersonajeNJ.h"
+#include "Escudo.h"
 
 using namespace std;
 
@@ -35,6 +37,7 @@ int inicializaItems(Item* v[], int tamv) {
     v[numItems++] = new Bloque();
     v[numItems++] = new Espada();
     v[numItems++] = new Filete();
+    v[numItems++] = new Escudo();
 
     //Asigna a nullptr el resto de posiciones no ocupadas
     for (int i = numItems; i < tamv; i++) {
@@ -70,15 +73,23 @@ int main(int argc, char** argv) {
 
     const int MAXITEMS = 10;
     Item * objetos[MAXITEMS];
+    Contenedor<PersonajeNJ> personajes;
+    personajes.mete(new PersonajeNJ("Creeper"));
+    personajes.mete(new PersonajeNJ("Zombie"));
+    personajes.mete(new PersonajeNJ("Aldeano"));
+    personajes.mete(new PersonajeNJ("Araña"));
+    personajes.mete(new PersonajeNJ("Esqueleto"));
+    personajes.mete(new PersonajeNJ("Vaca"));
+    
 
     try {
 
         //Inicializamos algunos objetos de prueba
         int numObjetos = inicializaItems(objetos, MAXITEMS);
 
-        Cofre c; //Creamos un cofre con 27 posiciones
+        Cofre c, c2; //Creamos un cofre con 27 posiciones
         Inventario i;
-        Cofre c2;
+        Escudo escudo;
 
         try {
             i.mete(&c);
@@ -104,7 +115,6 @@ int main(int argc, char** argv) {
         }
 
         visualiza(c);
-        visualiza(i);
         
         Item *algo = &(i.consulta(i.cuantosHay()));
         
@@ -113,7 +123,30 @@ int main(int argc, char** argv) {
         
         if(c3)
             visualiza(*c3);
-
+        
+        try{
+            i.usarItem(*objetos[3]);
+            i.usarItem(*objetos[5]);
+        }catch (std::exception &e){
+            std::cerr << "Error al intentar usar un objeto: " << e.what() << std::endl;
+        }
+        try{
+            i.usarItem(*objetos[4]);
+        }catch (std::exception &e){
+            std::cerr << "Error al intentar usar un objeto: " << e.what() << std::endl;
+        }
+        visualiza(i);
+        try{
+            std::cout << "Usando un escudo..." << std::endl;
+            i.usarItem(escudo);
+        }catch (std::exception &e){
+            std::cerr << "Error al intentar usar un objeto: " << e.what() << std::endl;
+        }
+        
+        visualiza(i);
+        
+        visualiza(personajes);
+        
         //Liberamos recursos
         liberaItems(objetos, numObjetos);
 

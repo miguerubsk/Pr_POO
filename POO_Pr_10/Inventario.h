@@ -16,6 +16,7 @@
 
 #include "Item.h"
 #include "Contenedor.h"
+#include "Espada.h"
 
 
 class Inventario: public Contenedor<Item> {
@@ -24,10 +25,14 @@ public:
     Inventario(const Inventario& orig);
     virtual ~Inventario();
     
+    Item* getEspada() const;
+    
     void mete(Item* item) override;
+    void usarItem(Item &item);
 
 private:
-
+    Item *espada = nullptr;
+    Item *escudo = nullptr;
 };
 
 #endif /* INVENTARIO_H */
