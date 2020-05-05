@@ -12,13 +12,13 @@
  */
 
 #include "Item.h"
-#include "ContenedorItems.h"
+#include "Contenedor.h"
 #include <string>
 
 #ifndef COFRE_H
 #define COFRE_H
 
-class Cofre: public ContenedorItems<Item> {
+class Cofre: public Item, public Contenedor<Item> {
 public:
     Cofre();
     Cofre(int cuantosCaben);
@@ -26,6 +26,7 @@ public:
     virtual ~Cofre();
     
     void mete(Item* item) override;
+    std::string getDescripcion() const override;
 
 };
 

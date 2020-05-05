@@ -19,6 +19,7 @@
 #include "Bloque.h"
 #include "Espada.h"
 #include "Filete.h"
+#include "Inventario.h"
 
 using namespace std;
 
@@ -51,8 +52,8 @@ void liberaItems(Item* v[], int numItems) {
 
 }
 
-void visualiza(Cofre &c) {
-    std::cout << "CONTENIDO DEL COFRE" << std::endl
+void visualiza(Contenedor<Item> &c) {
+    std::cout << "CONTENIDO DEL CONTENEDOR" << std::endl
             << "===================" << std::endl;
     for (int i = 1; i <= c.cuantosHay(); i++) {
         std::cout << i << ".- "
@@ -67,7 +68,7 @@ void visualiza(Cofre &c) {
 int main(int argc, char** argv) {
 
     const int MAXITEMS = 10;
-    Item* objetos[MAXITEMS];
+    Item * objetos[MAXITEMS];
 
     try {
 
@@ -75,6 +76,17 @@ int main(int argc, char** argv) {
         int numObjetos = inicializaItems(objetos, MAXITEMS);
 
         Cofre c; //Creamos un cofre con 27 posiciones
+        Inventario i;
+        Cofre c2;
+
+        try {
+            i.mete(&c);
+        } catch (std::exception &e) {
+            //Capturamos cualquier excepción de la jerarquía que pueda generar
+            //Consulta::mete. Es decir: out_of_range y invalid_argument
+            std::cerr << "Error al intentar meter un cofre en el inventario: "
+                    << e.what() << std::endl;
+        }
 
         //Metemos todos los objetos en el cofre
 
@@ -82,18 +94,28 @@ int main(int argc, char** argv) {
             for (int i = 0; i < numObjetos; i++) {
                 c.mete(objetos[i]);
             }
-        }catch(std::exception &e) {
+            c.mete(&c2);
+        } catch (std::exception &e) {
             //Capturamos cualquier excepción de la jerarquía que pueda generar
             //Consulta::mete. Es decir: out_of_range y invalid_argument
-            std::cerr   << "Error al intentar meter un objeto en el cofre: "
-                        << e.what() << std::endl;
+            std::cerr << "Error al intentar meter un objeto en el cofre: "
+                    << e.what() << std::endl;
         }
 
         visualiza(c);
+        visualiza(i);
+        
+        Item *algo = &(i.consulta(i.cuantosHay()));
+        
+        Cofre *c3;
+        c3 = dynamic_cast<Cofre*>(algo);
+        
+        if(c3)
+            visualiza(*c3);
 
         //Liberamos recursos
         liberaItems(objetos, numObjetos);
-        
+
     } catch (std::exception &e) {
         //Capturamos cualquier excepción que se haya podido escapar
         //En tiempo de desarrollo

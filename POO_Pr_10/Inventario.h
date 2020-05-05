@@ -14,11 +14,18 @@
 #ifndef INVENTARIO_H
 #define INVENTARIO_H
 
-class Inventario {
+#include "Item.h"
+#include "Contenedor.h"
+
+
+class Inventario: public Contenedor<Item> {
 public:
     Inventario();
     Inventario(const Inventario& orig);
     virtual ~Inventario();
+    
+    void mete(Item* item) override;
+
 private:
 
 };

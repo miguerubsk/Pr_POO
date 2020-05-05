@@ -11,20 +11,20 @@
  * Created on 5 de mayo de 2020, 13:24
  */
 
-#ifndef CONTENEDORITEMS_H
-#define CONTENEDORITEMS_H
+#ifndef CONTENEDOR_H
+#define CONTENEDOR_H
 
 #include "EmptyContainer.h"
 #include <stdexcept>
 #include <string>
 
 template <typename T>
-class ContenedorItems {
+class Contenedor {
 public:
-    ContenedorItems<T>();
-    ContenedorItems<T>(int cuantosCaben);
-    ContenedorItems<T>(const ContenedorItems& orig);
-    virtual ~ContenedorItems();
+    Contenedor<T>();
+    Contenedor<T>(int cuantosCaben);
+    Contenedor<T>(const Contenedor& orig);
+    virtual ~Contenedor();
     int cuantosCaben();
     int cuantosHay() const;
     virtual void mete(T *item);
@@ -37,10 +37,10 @@ protected:
 };
 
 template <typename T>
-ContenedorItems<T>::ContenedorItems(): ContenedorItems(27){}
+Contenedor<T>::Contenedor(): Contenedor(27){}
 
 template <typename T>
-ContenedorItems<T>::ContenedorItems(int cuantosCaben):_maxItems(cuantosCaben),_numItems(0) {    
+Contenedor<T>::Contenedor(int cuantosCaben):_maxItems(cuantosCaben),_numItems(0) {    
     _items=new T*[cuantosCaben];
     for (int i = 0; i < cuantosCaben; i++) {
         _items[i]=nullptr;
@@ -49,7 +49,7 @@ ContenedorItems<T>::ContenedorItems(int cuantosCaben):_maxItems(cuantosCaben),_n
 
 /**Crea un Cofre vacío del mismo tamaño del original*/
 template <typename T>
-ContenedorItems<T>::ContenedorItems(const ContenedorItems& orig) 
+Contenedor<T>::Contenedor(const Contenedor& orig) 
     :_maxItems(orig._maxItems)
     ,_numItems(orig._numItems) {
 
@@ -60,22 +60,22 @@ ContenedorItems<T>::ContenedorItems(const ContenedorItems& orig)
 }
 
 template <typename T>
-ContenedorItems<T>::~ContenedorItems() {
+Contenedor<T>::~Contenedor() {
     delete [] _items;
 }
 
 template <typename T>
-int ContenedorItems<T>::cuantosHay() const {
+int Contenedor<T>::cuantosHay() const {
     return _numItems;
 }
 
 template <typename T>
-int ContenedorItems<T>::cuantosCaben() {
+int Contenedor<T>::cuantosCaben() {
     return _maxItems;
 }
 
 template <typename T>
-void ContenedorItems<T>::mete(T* item) {
+void Contenedor<T>::mete(T* item) {
     if (!item) 
         throw std::invalid_argument ("[ContenedorItems::mete] Intento de asignar puntero 0");
     if (_numItems==_maxItems)
@@ -88,7 +88,7 @@ void ContenedorItems<T>::mete(T* item) {
    @throw std::out_of_range si el elemento no existe
    @throw EmptyContainer si el cofre está vacío*/
 template <typename T>
-T& ContenedorItems<T>::consulta(int cual) {
+T& Contenedor<T>::consulta(int cual) {
     if (_numItems==0) 
         throw EmptyContainer("[ContenedorItems::consulta] El cofre está vacío");
     if (cual<=0 || cual >_numItems)
@@ -102,7 +102,7 @@ T& ContenedorItems<T>::consulta(int cual) {
    @throw std::out_of_range si el elemento no existe
    @throw EmptyContainer si el cofre está vacío*/
 template <typename T>
-T* ContenedorItems<T>::saca(int cual) {
+T* Contenedor<T>::saca(int cual) {
     if (_numItems==0) 
         throw EmptyContainer("[ContenedorItems::saca] El cofre está vacío");
     if (cual<=0 || cual >_numItems)
@@ -114,5 +114,5 @@ T* ContenedorItems<T>::saca(int cual) {
     return elemento;
 }
 
-#endif /* CONTENEDORITEMS_H */
+#endif /* CONTENEDOR_H */
 

@@ -22,3 +22,10 @@ Inventario::Inventario(const Inventario& orig) {
 Inventario::~Inventario() {
 }
 
+void Inventario::mete(Item* item) {
+    if (!item) 
+        throw std::invalid_argument ("[Inventario::mete] Intento de asignar puntero 0");
+    if (_numItems==_maxItems)
+        throw std::out_of_range("[Inventario::mete] No caben más elementos en el cofre");
+    _items[_numItems++]=item;
+}
