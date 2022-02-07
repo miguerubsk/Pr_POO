@@ -8,7 +8,7 @@
  * File:   Filete.h
  * Author: Miguerubsk
  *
- * Created on 25 de abril de 2020, 16:24
+ * Created on 25 de abril de 2020, 16:25
  */
 
 #ifndef FILETE_H
@@ -16,18 +16,16 @@
 
 #include "Item.h"
 
-
 class Filete: public Item {
 public:
-    Filete();
+    Filete() = default;
     Filete(const Filete& orig);
     virtual ~Filete();
-    
-    std::string getDescripcion() const override;
-    bool esEquipable() override;
-    
+
+    virtual std::string getDescripcion() const;
+
 private:
-    std::string descripcion;
+
 };
 
 #endif /* FILETE_H */

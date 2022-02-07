@@ -8,7 +8,7 @@
  * File:   ItemApilable.h
  * Author: Miguerubsk
  *
- * Created on 25 de abril de 2020, 16:28
+ * Created on 25 de abril de 2020, 16:25
  */
 
 #ifndef ITEMAPILABLE_H
@@ -16,6 +16,8 @@
 
 #include "Item.h"
 
+/**@brief Clase abstracta para objetos apilables
+*/
 class ItemApilable: public Item {
 public:
     ItemApilable() = default;
@@ -26,9 +28,8 @@ public:
     void decrementaNumElementos(unsigned int cantidad);
     unsigned int getNumElementos() const;
 
+    //Heredada de Item pero implementable en derivadas
     virtual std::string getDescripcion() const=0;
-    virtual bool esEquipable() override;
-
 
 private:
     int _numElementos = 1;

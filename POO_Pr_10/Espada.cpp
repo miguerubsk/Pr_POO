@@ -7,12 +7,11 @@
 /* 
  * File:   Espada.cpp
  * Author: Miguerubsk
- * 
- * Created on 25 de abril de 2020, 16:24
+ *
+ * Created on 25 de abril de 2020, 16:25
  */
 
 #include "Espada.h"
-
 
 Espada::Espada(const Espada& orig) {
 }
@@ -21,9 +20,5 @@ Espada::~Espada() {
 }
 
 std::string Espada::getDescripcion() const {
-    return "Una espada";
-}
-
-bool Espada::esEquipable() {
-    return true;
+    return "Espada";
 }

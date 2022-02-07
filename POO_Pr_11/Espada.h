@@ -5,32 +5,25 @@
  */
 
 /* 
- * File:   Bloque.h
+ * File:   Espada.h
  * Author: Miguerubsk
  *
  * Created on 25 de abril de 2020, 16:25
  */
-
-#ifndef BLOQUE_H
-#define BLOQUE_H
-
+#ifndef ESPADA_H
+#define ESPADA_H
 #include "Item.h"
-#include "ItemApilable.h"
 
-
-class Bloque: public ItemApilable {
+class Espada: public Item {
 public:
-    Bloque();
-    Bloque(unsigned int cuantos);
-    Bloque(const Bloque& orig);
-    virtual ~Bloque();
+    Espada() = default;
+    Espada(const Espada& orig);
+    virtual ~Espada();
+
     virtual std::string getDescripcion() const;
-    bool esEquipable() override;
 
 private:
-    
-
 };
 
-#endif /* BLOQUE_H */
+#endif /* ESPADA_H */
 

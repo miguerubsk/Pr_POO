@@ -10,9 +10,9 @@
 #ifndef ITEM_H
 #define ITEM_H
 
+/**@brief Interfaz de objetos del juego*/
 class Item {
 public:
-    virtual bool esEquipable()=0;
     virtual std::string getDescripcion() const=0;
     virtual ~Item() {};
 };

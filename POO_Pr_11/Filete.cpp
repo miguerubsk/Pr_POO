@@ -7,14 +7,11 @@
 /* 
  * File:   Filete.cpp
  * Author: Miguerubsk
- * 
- * Created on 25 de abril de 2020, 16:24
+ *
+ * Created on 25 de abril de 2020, 16:25
  */
 
 #include "Filete.h"
-
-Filete::Filete() {
-}
 
 Filete::Filete(const Filete& orig) {
 }
@@ -23,9 +20,5 @@ Filete::~Filete() {
 }
 
 std::string Filete::getDescripcion() const {
-    return "Un filete";
-}
-
-bool Filete::esEquipable() {
-    return false;
+    return "Filete";
 }

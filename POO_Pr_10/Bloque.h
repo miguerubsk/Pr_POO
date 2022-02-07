@@ -14,10 +14,9 @@
 #ifndef BLOQUE_H
 #define BLOQUE_H
 
-#include "Item.h"
 #include "ItemApilable.h"
 
-
+/**@Brief Clase base para bloques de construcción*/
 class Bloque: public ItemApilable {
 public:
     Bloque();
@@ -25,8 +24,6 @@ public:
     Bloque(const Bloque& orig);
     virtual ~Bloque();
     virtual std::string getDescripcion() const;
-    bool esEquipable() override;
-
 private:
     
 

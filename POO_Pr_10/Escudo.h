@@ -5,30 +5,29 @@
  */
 
 /* 
- * File:   Filete.h
+ * File:   Escudo.h
  * Author: Miguerubsk
  *
- * Created on 25 de abril de 2020, 16:24
+ * Created on 5 de mayo de 2020, 18:51
  */
 
-#ifndef FILETE_H
-#define FILETE_H
+#ifndef ESCUDO_H
+#define ESCUDO_H
 
+#include <string>
 #include "Item.h"
 
-
-class Filete: public Item {
+class Escudo: public Item {
 public:
-    Filete();
-    Filete(const Filete& orig);
-    virtual ~Filete();
+    Escudo();
+    Escudo(const Escudo& orig);
+    virtual ~Escudo();
     
     std::string getDescripcion() const override;
-    bool esEquipable() override;
-    
+
 private:
-    std::string descripcion;
+
 };
 
-#endif /* FILETE_H */
+#endif /* ESCUDO_H */
 
